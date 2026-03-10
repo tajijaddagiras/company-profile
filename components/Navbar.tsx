@@ -8,7 +8,6 @@ const Navbar = () => {
             {/* Topbar - full width cream */}
             <div className="bg-[#4D96AD] border-b border-white/10 py-1.5 px-6 hidden md:flex justify-between items-center text-xs text-white/80">
                 <div className="flex gap-5">
-                    <span>📍 123 Business Street, City, USA</span>
                     <span>✉️ info@example.com</span>
                 </div>
                 <div className="flex gap-3 text-gray-400 items-center">
