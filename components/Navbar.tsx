@@ -45,7 +45,7 @@ const Navbar = () => {
                             { label: "Home", href: "#home" },
                             { label: "About Us", href: "#about" },
                             { label: "Programs", href: "#programs" },
-                            { label: "Gallery", href: "#" },
+                            { label: "Gallery", href: "/gallery" },
                             { label: "Contact", href: "#contact-us" },
                         ].map((item) => (
                             <li key={item.label}>
@@ -77,7 +77,7 @@ const Navbar = () => {
                             { label: "Home", href: "#home" },
                             { label: "About Us", href: "#about" },
                             { label: "Programs", href: "#programs" },
-                            { label: "Gallery", href: "#" },
+                            { label: "Gallery", href: "/gallery" },
                             { label: "Contact", href: "#contact-us" },
                         ].map((item) => (
                             <a

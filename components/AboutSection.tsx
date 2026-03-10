@@ -10,7 +10,7 @@ const NoImg = ({ className = "", round = false }: { className?: string; round?: 
 );
 
 const AboutSection = () => (
-    <section id="about" className="bg-white py-20 px-6 md:px-20 relative overflow-hidden">
+    <section id="about" className="bg-[#FFCDE4] py-20 px-6 md:px-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
 
             {/* Left - Organic image frame */}

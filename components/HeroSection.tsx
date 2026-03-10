@@ -50,7 +50,7 @@ const DoodleStar = () => (
 
 const HeroSection = () => {
     return (
-        <section id="home" className="bg-[#FFF5F7] pt-40 pb-0 relative overflow-hidden">
+        <section id="home" className="bg-[#FFCDE4] pt-40 pb-16 md:pb-24 relative overflow-hidden">
 
             {/* Doodle: Arrow top-right corner */}
             <div className="absolute top-24 right-10 opacity-70 rotate-12">
@@ -152,12 +152,12 @@ const HeroSection = () => {
             </div>
 
             {/* ── Wavy / wave bottom border ── */}
-            <div className="relative w-full mt-0" style={{ lineHeight: 0 }}>
+            <div className="absolute bottom-0 left-0 w-full leading-[0]">
                 <svg
                     viewBox="0 0 1440 90"
                     xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="none"
-                    className="w-full"
+                    className="w-full h-12 md:h-16 lg:h-20 2xl:h-24"
                     style={{ display: "block" }}
                 >
                     <path

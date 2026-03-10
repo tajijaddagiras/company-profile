@@ -30,16 +30,40 @@ const Footer = () => (
             </div>
             {/* Links */}
             {[
-                { title: "Quick Links", links: ["Home", "About Us", "Programs", "Gallery", "Contact"] },
-                { title: "Programs", links: ["English Class", "Chemistry Class", "Drawing Class", "Preschool", "Advanced Course"] },
-                { title: "Contact", links: ["✉️ catbearartstudioofficial@gmail.com", "📞 +62 853-7131-5541"] },
+                {
+                    title: "Quick Links",
+                    links: [
+                        { label: "Home", href: "/" },
+                        { label: "About Us", href: "/#about" },
+                        { label: "Programs", href: "/#programs" },
+                        { label: "Gallery", href: "/gallery" },
+                        { label: "Contact", href: "/#contact-us" }
+                    ]
+                },
+                {
+                    title: "Programs",
+                    links: [
+                        { label: "English Class", href: "#" },
+                        { label: "Chemistry Class", href: "#" },
+                        { label: "Drawing Class", href: "#" },
+                        { label: "Preschool", href: "#" },
+                        { label: "Advanced Course", href: "#" }
+                    ]
+                },
+                {
+                    title: "Contact",
+                    links: [
+                        { label: "✉️ catbearartstudioofficial@gmail.com", href: "mailto:catbearartstudioofficial@gmail.com" },
+                        { label: "📞 +62 853-7131-5541", href: "https://wa.me/6285371315541" }
+                    ]
+                },
             ].map((col) => (
                 <div key={col.title}>
                     <h4 className="font-bold text-base mb-5 text-[#2D3561]">{col.title}</h4>
                     <ul className="flex flex-col gap-2.5">
                         {col.links.map((link) => (
-                            <li key={link}>
-                                <a href="#" className="text-gray-500 text-sm hover:text-[#4D96AD] transition-colors">{link}</a>
+                            <li key={link.label}>
+                                <a href={link.href} className="text-gray-500 text-sm hover:text-[#4D96AD] transition-colors">{link.label}</a>
                             </li>
                         ))}
                     </ul>

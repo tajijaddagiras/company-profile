@@ -28,7 +28,7 @@ const TestimonialsSection = () => {
             <div className="max-w-7xl mx-auto relative">
 
                 {/* Large organic card for testimonial */}
-                <div className="bg-[#FFF5F7] rounded-[60px] p-10 md:p-20 relative z-10 flex flex-col items-center text-center shadow-inner">
+                <div className="bg-[#FFCDE4] rounded-[60px] p-10 md:p-20 relative z-10 flex flex-col items-center text-center shadow-inner">
 
                     {/* Floating Nav Buttons */}
                     <button

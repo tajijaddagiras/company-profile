@@ -18,7 +18,7 @@ const instructors = [
 ];
 
 const InstructorsSection = () => (
-    <section id="instructors" className="bg-[#FFF5F7] py-24 px-6 md:px-20 relative overflow-hidden">
+    <section id="instructors" className="bg-[#FFCDE4] py-24 px-6 md:px-20 relative overflow-hidden">
 
         {/* Doodles */}
         {/* Cactus on middle-left border */}
