@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #F5932A;
+    --color-primary-light: #FEE8D0;
+    --color-teal: #5B8FA8;
+    --color-navy: #2D3561;
+    --color-cream: #FEF6EE;
+    --font-sans: 'Nunito', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: #2D3561;
+}
+
+.hexagon {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.blob {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
