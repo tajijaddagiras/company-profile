@@ -42,7 +42,7 @@ const cards = [
 ];
 
 const BestSection = () => (
-    <section className="bg-[#F4F9FC] py-24 px-6 md:px-20 relative overflow-hidden">
+    <section className="bg-[#CCF4FF] py-24 px-6 md:px-20 relative overflow-hidden">
 
         {/* Doodles */}
         <div className="absolute top-20 left-10 md:left-20 pointer-events-none">
@@ -53,11 +53,25 @@ const BestSection = () => (
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 relative">
                 <p className="text-[#4D96AD] text-sm font-bold uppercase tracking-widest mb-3">Our Schools</p>
-                <h2 className="text-4xl md:text-5xl font-black text-[#2D3561] leading-tight">
+                <h2 className="text-4xl md:text-5xl font-black text-[#2D3561] leading-tight relative z-10">
                     The Best Playschool<br />For Your Kid
                 </h2>
+
+                {/* Decorative floating icons around title */}
+                <div className="absolute -top-6 left-1/4 animate-bounce duration-[3000ms] opacity-60 hidden md:block">
+                    <span className="text-4xl">🎨</span>
+                </div>
+                <div className="absolute top-10 right-1/4 animate-pulse opacity-60 hidden md:block">
+                    <span className="text-4xl">⭐</span>
+                </div>
+                <div className="absolute -bottom-10 left-1/3 opacity-40 rotate-12 hidden lg:block">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M5 20 C10 5, 30 5, 35 20" stroke="#4D96AD" strokeWidth="3" strokeLinecap="round" />
+                        <path d="M10 25 C15 15, 25 15, 30 25" stroke="#4D96AD" strokeWidth="3" strokeLinecap="round" opacity="0.5" />
+                    </svg>
+                </div>
             </div>
 
             <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -79,18 +93,25 @@ const BestSection = () => (
                 {/* Center Image Placeholder with Yellow Line Art */}
                 <div className="flex-1 relative flex justify-center items-center py-10">
                     <div className="relative">
-                        {/* Yellow line art behind child */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-[120%] border-[6px] border-[#4D96AD] opacity-20" style={{ borderRadius: "50% 50% 0 0", borderBottom: 0 }} />
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[45%] w-72 h-[110%] border-4 border-[#4D96AD] opacity-10" style={{ borderRadius: "50% 50% 0 0", borderBottom: 0 }} />
+                        {/* Corrected Arch decorations: Blue borders, Pink outer fill, Cream inner fill */}
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-[110%] border-[4px] border-[#4D96AD] bg-[#FFD6E9] shadow-sm" style={{ borderRadius: "160px 160px 0 0" }} />
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-72 h-[100%] border-[4px] border-[#4D96AD] bg-[#FFF5E1] shadow-sm" style={{ borderRadius: "140px 140px 0 0" }} />
 
-                        {/* Child Image - adjusted sizing to not cut off head/body */}
-                        <div className="relative z-10 w-72 h-[450px] flex items-end">
+                        {/* Main Character with Cloud Overlay Placeholder */}
+                        <div className="relative z-10 w-72 h-[450px] flex items-end justify-center">
                             <img
                                 src="/images/kartunwisuda.png"
                                 alt="Child Graduation"
                                 className="w-full h-full object-contain object-bottom"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#F4F9FC] via-transparent to-transparent z-20 h-20 bottom-0 top-auto" />
+                            {/* Overlay using awan.png as a massive decorative element on the top right */}
+                            <div className="absolute -top-20 -right-72 pointer-events-none z-20">
+                                <img
+                                    src="/images/awan.png"
+                                    alt="Cloud Decoration"
+                                    className="w-[500px] max-w-none h-auto opacity-70 animate-pulse"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -110,6 +131,24 @@ const BestSection = () => (
                     ))}
                 </div>
             </div>
+        </div>
+
+        {/* Extra "Perentelan" Decorations at Corners */}
+        <div className="absolute bottom-10 left-10 opacity-30 rotate-45 hidden md:block">
+            <span className="text-6xl text-[#4D96AD]">✏️</span>
+        </div>
+        <div className="absolute bottom-20 right-12 opacity-30 -rotate-12 hidden md:block animate-pulse">
+            <span className="text-6xl text-[#4D96AD]">📚</span>
+        </div>
+        <div className="absolute top-1/2 left-[-20px] opacity-20 hidden lg:block">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" stroke="#4D96AD" strokeWidth="2" strokeDasharray="10 10" fill="none" />
+            </svg>
+        </div>
+        <div className="absolute top-1/3 right-[-30px] opacity-20 hidden lg:block rotate-45">
+            <svg width="80" height="80" viewBox="0 0 80 80">
+                <rect x="10" y="10" width="60" height="60" rx="10" stroke="#4D96AD" strokeWidth="2" fill="none" />
+            </svg>
         </div>
     </section>
 );

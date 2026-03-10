@@ -70,7 +70,7 @@ const HeroSection = () => {
                 <DoodleStar />
             </div>
 
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 px-6 md:px-12">
+            <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-8 px-6 md:px-12">
                 {/* ── Left Content ── */}
                 <div className="flex-1 z-10 pb-16">
                     {/* Breadcrumb */}
@@ -82,13 +82,13 @@ const HeroSection = () => {
                         <span className="text-[#4D96AD]">✦</span>
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#2D3561] leading-tight mb-5">
-                        We Prepare Your<br />
-                        <span className="text-[#4D96AD]">Child</span> For Life
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#4D96AD] leading-tight mb-5">
+                        <span className="text-[#2D3561]">Belajar</span> Drawing, Digital Design dan 3D Animation<br />
+                        <span className="text-[#2D3561]">Dengan Cara Yang Seru</span>
                     </h1>
 
                     <p className="text-gray-500 leading-relaxed mb-8 max-w-md text-sm md:text-base">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.
+                        Kelas kreatif untuk anak dan remaja yang ingin mengembangkan bakat menggambar, desain digital, dan animasi
                     </p>
 
                     <div className="flex gap-4 flex-wrap items-center">
@@ -107,28 +107,28 @@ const HeroSection = () => {
                 </div>
 
                 {/* ── Right — Organic blob + image ── */}
-                <div className="flex-1 relative flex justify-center items-end min-h-[420px] pb-0">
+                <div className="flex-1 relative flex justify-center items-end min-h-[450px] pb-16 md:pb-28">
 
                     {/* Large organic orange blob */}
                     <div
-                        className="absolute bottom-0 right-0 w-[420px] h-[400px]"
+                        className="absolute bottom-16 md:bottom-28 right-0 w-[420px] h-[400px]"
                         style={{
-                            background: "#4D96AD",
+                            background: "#FFF5E1",
                             borderRadius: "60% 40% 0% 0% / 55% 55% 0% 0%",
-                            opacity: 0.18,
+                            opacity: 0.3,
                         }}
                     />
                     <div
-                        className="absolute bottom-0 right-4 w-[380px] h-[380px]"
+                        className="absolute bottom-16 md:bottom-28 right-4 w-[380px] h-[380px]"
                         style={{
-                            background: "#4D96AD",
+                            background: "#FFF5E1",
                             borderRadius: "55% 45% 0% 0% / 60% 60% 0% 0%",
                         }}
                     />
 
                     {/* Circle image ON TOP of blob */}
                     <div className="relative z-10 mb-0" style={{ bottom: 0 }}>
-                        <div className="w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                        <div className="w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white">
                             <img
                                 src="/images/gambarutama.PNG"
                                 alt="Pre-school Child"

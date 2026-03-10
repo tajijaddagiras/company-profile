@@ -50,12 +50,12 @@ const stats = [
 ];
 
 const StatsSection = () => (
-    <section className="bg-[#4D96AD] py-16 px-6 md:px-20 relative overflow-hidden text-white">
+    <section className="bg-[#D5EED1] py-16 px-6 md:px-20 relative overflow-hidden text-[#4D96AD]">
         {/* Paper Plane Doodle */}
         <div className="absolute left-4 top-1/2 -translate-y-1/2 opacity-40 hidden lg:block">
             <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 80 Q 20 20 80 15 L 65 30 M 80 15 L 75 40" stroke="white" strokeWidth="2" strokeDasharray="5 5" strokeLinecap="round" />
-                <path d="M80 15 L 30 40 L 45 45 L 50 60 L 80 15 Z" fill="white" opacity="0.8" />
+                <path d="M10 80 Q 20 20 80 15 L 65 30 M 80 15 L 75 40" stroke="#4D96AD" strokeWidth="2" strokeDasharray="5 5" strokeLinecap="round" />
+                <path d="M80 15 L 30 40 L 45 45 L 50 60 L 80 15 Z" fill="#4D96AD" opacity="0.8" />
                 <path d="M80 15 L 45 45" stroke="white" strokeWidth="1" opacity="0.5" />
             </svg>
         </div>

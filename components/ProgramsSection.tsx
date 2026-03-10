@@ -120,8 +120,8 @@ const ProgramsSection = () => (
         </div>
 
         {/* Section Wave Bottom (lika liku) */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
-            <svg viewBox="0 0 1440 60" fill="#FFF5F7" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-16">
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden">
+            <svg viewBox="0 0 1440 60" fill="#FFCDE4" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-16 block">
                 <path d="M0,60 C120,20 240,20 360,60 C480,20 600,20 720,60 C840,20 960,20 1080,60 C1200,20 1320,20 1440,60 L1440,60 L0,60 Z" />
             </svg>
         </div>

@@ -11,7 +11,7 @@ const NoImg = ({ className = "", round = false }: { className?: string; round?: 
 
 const AboutSection = () => (
     <section id="about" className="bg-[#FFCDE4] py-20 px-6 md:px-20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
 
             {/* Left - Organic image frame */}
             <div className="flex-1 relative flex justify-center items-center">
@@ -44,14 +44,16 @@ const AboutSection = () => (
             </div>
 
             {/* Right - Content */}
-            <div className="flex-1 relative">
+            <div className="flex-1 relative md:pr-32">
                 <p className="text-[#4D96AD] text-sm font-bold mb-3">About Us</p>
                 <h2 className="text-3xl md:text-4xl font-black text-[#4D96AD] leading-tight mb-5">
-                    Learn To Play, Converse<br />With Confidence
+                    Where Creativity Comes<br />to life
                 </h2>
+                <p className="text-gray-500 text-sm leading-relaxed mb-3 max-w-lg">
+                    Di Catbear Art Studio, siswa belajar dari dasar hingga mahir dengan metode yang menyenangkan, interaktif, dan mudah dipahami.
+                </p>
                 <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-lg">
-                    Compellingly facilitate various infomediaries and pervasive methods of empowerment.
-                    Enthusiastically promote interactive catalysts for change.
+                    Mulai dari menggambar karakter, membuat ilustrasi digital, hingga menciptakan animasi 3D.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-6 mb-8">
@@ -92,7 +94,7 @@ const AboutSection = () => (
 
                 {/* Giraffe/USMut Placeholder top-right of content area (Enlarged) */}
                 <div className="absolute top-10 -right-24 hidden lg:block opacity-90 transition-all">
-                    <div className="w-48 h-64 border-4 border-dashed border-[#FFD9E8] rounded-[40px] overflow-hidden shadow-lg">
+                    <div className="w-48 h-64 border-4 border-dashed border-[#FFD9E8] rounded-[40px] overflow-hidden shadow-lg bg-[#FFF5E1]">
                         <img
                             src="/images/usmut.png"
                             alt="About Us Secondary"
@@ -103,9 +105,9 @@ const AboutSection = () => (
             </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
-            <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12">
-                <path d="M0,60 L0,30 Q30,60 60,30 Q90,60 120,30 Q150,60 180,30 Q210,60 240,30 Q270,60 300,30 Q330,60 360,30 Q390,60 420,30 Q450,60 480,30 Q510,60 540,30 Q570,60 600,30 Q630,60 660,30 Q690,60 720,30 Q750,60 780,30 Q810,60 840,30 Q870,60 900,30 Q930,60 960,30 Q990,60 1020,30 Q1050,60 1080,30 Q1110,60 1140,30 Q1170,60 1200,30 Q1230,60 1260,30 Q1290,60 1320,30 Q1350,60 1380,30 Q1410,60 1440,30 L1440,60 Z" fill="#F4F9FC" />
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden">
+            <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 block">
+                <path d="M0,60 L0,30 Q30,60 60,30 Q90,60 120,30 Q150,60 180,30 Q210,60 240,30 Q270,60 300,30 Q330,60 360,30 Q390,60 420,30 Q450,60 480,30 Q510,60 540,30 Q570,60 600,30 Q630,60 660,30 Q690,60 720,30 Q750,60 780,30 Q810,60 840,30 Q870,60 900,30 Q930,60 960,30 Q990,60 1020,30 Q1050,60 1080,30 Q1110,60 1140,30 Q1170,60 1200,30 Q1230,60 1260,30 Q1290,60 1320,30 Q1350,60 1380,30 Q1410,60 1440,30 L1440,60 Z" fill="#CCF4FF" />
             </svg>
         </div>
     </section>

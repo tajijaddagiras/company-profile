@@ -99,6 +99,9 @@ const Masonry: React.FC<MasonryProps> = ({
     const [containerRef, { width }] = useMeasure<HTMLDivElement>();
     const [imagesReady, setImagesReady] = useState(false);
 
+    // State for popup/lightbox
+    const [activeImage, setActiveImage] = useState<string | null>(null);
+
     const getInitialPosition = (item: GridItem) => {
         const containerRect = containerRef.current?.getBoundingClientRect();
         if (!containerRect) return { x: item.x, y: item.y };
@@ -223,7 +226,7 @@ const Masonry: React.FC<MasonryProps> = ({
                     data-key={item.id}
                     className="absolute box-content cursor-pointer"
                     style={{ willChange: 'transform, width, height, opacity' }}
-                    onClick={() => item.url && window.open(item.url, '_blank', 'noopener')}
+                    onClick={() => item.url && setActiveImage(item.url)}
                     onMouseEnter={() => handleMouseEnter(item.id)}
                     onMouseLeave={() => handleMouseLeave(item.id)}
                 >
@@ -242,6 +245,48 @@ const Masonry: React.FC<MasonryProps> = ({
                     </div>
                 </div>
             ))}
+
+            {/* Lightbox / Popup / Image Preview Overlay */}
+            {activeImage && (
+                <div
+                    className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-12 transition-opacity"
+                    onClick={() => setActiveImage(null)}
+                >
+                    {/* Close button */}
+                    <button
+                        className="absolute top-6 right-6 md:top-10 md:right-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/30 text-white flex items-center justify-center transition-all z-[101]"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setActiveImage(null);
+                        }}
+                    >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+
+                    {/* Image Container */}
+                    <div
+                        className="relative w-full h-full max-w-5xl max-h-[90vh] flex items-center justify-center"
+                        onClick={(e) => e.stopPropagation()} // Prevent clicking image from closing
+                    >
+                        <img
+                            src={activeImage}
+                            alt="Gallery Expanded"
+                            className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl border-4 border-white/20 select-none animate-[fadeIn_0.3s_ease-out_forwards]"
+                        />
+                    </div>
+                    {/* Add keyframes globally or just here for simple scale pop */}
+                    <style dangerouslySetInnerHTML={{
+                        __html: `
+                        @keyframes fadeIn {
+                            0% { opacity: 0; transform: scale(0.95) translateY(10px); }
+                            100% { opacity: 1; transform: scale(1) translateY(0); }
+                        }
+                    `}} />
+                </div>
+            )}
         </div>
     );
 };
