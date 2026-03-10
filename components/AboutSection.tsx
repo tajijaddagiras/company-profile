@@ -85,7 +85,7 @@ const AboutSection = () => (
                         <div className="w-10 h-10 rounded-full bg-[#D5EED1] flex items-center justify-center text-[#4D96AD] text-sm">📞</div>
                         <div>
                             <p className="text-[10px] text-gray-400 uppercase font-bold">Call Us Now</p>
-                            <p className="text-sm font-bold text-[#4D96AD]">+208-555-0112</p>
+                            <p className="text-sm font-bold text-[#4D96AD]">+62 853-7131-5541</p>
                         </div>
                     </div>
                 </div>
