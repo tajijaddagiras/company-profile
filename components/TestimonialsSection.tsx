@@ -50,7 +50,7 @@ const TestimonialsSection = () => {
                     {/* Animated Quote Slide */}
                     <div className="max-w-3xl">
                         <p className="text-gray-500 text-lg md:text-xl leading-relaxed mb-10 italic">
-                            "{testimonials[currentIndex].quote}"
+                            &ldquo;{testimonials[currentIndex].quote}&rdquo;
                         </p>
 
                         <div className="flex flex-col items-center gap-3">
