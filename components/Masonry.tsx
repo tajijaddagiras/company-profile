@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { gsap } from 'gsap';
 
 const useMedia = (queries: string[], values: number[], defaultValue: number): number => {
@@ -101,6 +102,11 @@ const Masonry: React.FC<MasonryProps> = ({
 
     // State for popup/lightbox
     const [activeImage, setActiveImage] = useState<string | null>(null);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const getInitialPosition = (item: GridItem) => {
         const containerRect = containerRef.current?.getBoundingClientRect();
@@ -246,15 +252,14 @@ const Masonry: React.FC<MasonryProps> = ({
                 </div>
             ))}
 
-            {/* Lightbox / Popup / Image Preview Overlay */}
-            {activeImage && (
+            {activeImage && mounted && createPortal(
                 <div
-                    className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-12 transition-opacity"
+                    className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 md:p-12 transition-opacity"
                     onClick={() => setActiveImage(null)}
                 >
                     {/* Close button */}
                     <button
-                        className="absolute top-6 right-6 md:top-10 md:right-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/30 text-white flex items-center justify-center transition-all z-[101]"
+                        className="absolute top-6 right-6 md:top-10 md:right-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/30 text-white flex items-center justify-center transition-all z-[100000]"
                         onClick={(e) => {
                             e.stopPropagation();
                             setActiveImage(null);
@@ -285,7 +290,8 @@ const Masonry: React.FC<MasonryProps> = ({
                             100% { opacity: 1; transform: scale(1) translateY(0); }
                         }
                     `}} />
-                </div>
+                </div>,
+                document.body
             )}
         </div>
     );

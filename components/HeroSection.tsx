@@ -71,7 +71,7 @@ const HeroSection = () => {
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <polygon points="8,2 14,14 2,14" fill="#4D96AD" opacity="0.7" />
                         </svg>
-                        <span className="font-semibold">Preschool &amp; Baby Care</span>
+                        <span className="font-semibold">Online Course (Kids-Teens)</span>
                         <span className="text-[#4D96AD]">✦</span>
                     </div>
 
