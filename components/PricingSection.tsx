@@ -3,48 +3,40 @@
 import React, { useState } from "react";
 
 const PricingSection = () => {
-    const [isYearly, setIsYearly] = useState(false);
+    const [isPrivate, setIsPrivate] = useState(false);
+
+    const commonFeatures = [
+        "Level Basic, Intermediate dan Advanced",
+        "1 bulan = 4 pertemuan",
+        "1 minggu = 1 pertemuan",
+        "Senin - Jumat (fleksibel)",
+        "Final Exam"
+    ];
+
+    const privateExtraFeature = "Kelebihan : manajement waktu lebih banyak dan pembelajaran lebih intensif";
 
     const plans = [
         {
-            name: "Basic Plan",
-            price: isYearly ? "350" : "35",
-            period: isYearly ? "Yearly" : "Monthly",
-            features: [
-                "1.5-2 hours per day",
-                "2 days in a week",
-                "2-3 subjects taught",
-                "Light snacks provided",
-                "Materials included"
-            ],
+            name: isPrivate ? "Paket Private Drawing" : "Paket Regular Drawing",
+            price: isPrivate ? "850.000" : "600.000",
+            period: "Bulan",
+            features: isPrivate ? [...commonFeatures, privateExtraFeature] : commonFeatures,
             color: "white",
             textColor: "#4D96AD"
         },
         {
-            name: "Premium Plan",
-            price: isYearly ? "990" : "99",
-            period: isYearly ? "Yearly" : "Monthly",
-            features: [
-                "2.5-3 hours per day",
-                "3 days in a week",
-                "3-4 subjects taught",
-                "Hot lunch provided",
-                "Materials included"
-            ],
+            name: isPrivate ? "Paket Private Digital Desain" : "Paket Regular Digital Desain",
+            price: isPrivate ? "850.000" : "600.000",
+            period: "Bulan",
+            features: isPrivate ? [...commonFeatures, privateExtraFeature] : commonFeatures,
             color: "#FFD9E8",
             textColor: "#4D96AD"
         },
         {
-            name: "Advanced Plan",
-            price: isYearly ? "1500" : "150",
-            period: isYearly ? "Yearly" : "Monthly",
-            features: [
-                "4-5 hours per day",
-                "5 days in a week",
-                "All subjects taught",
-                "Full meals provided",
-                "Materials included"
-            ],
+            name: isPrivate ? "Paket Private 3D Animation" : "Paket Regular 3D Animation",
+            price: isPrivate ? "850.000" : "600.000",
+            period: "Bulan",
+            features: isPrivate ? [...commonFeatures, privateExtraFeature] : commonFeatures,
             color: "white",
             textColor: "#4D96AD"
         }
@@ -83,28 +75,27 @@ const PricingSection = () => {
 
                 {/* Toggle Switch */}
                 <div className="flex items-center justify-center gap-4 mb-16">
-                    <span className={`text-sm font-bold ${!isYearly ? "text-[#4D96AD]" : "text-gray-400"}`}>Monthly</span>
+                    <span className={`text-sm font-bold ${!isPrivate ? "text-[#4D96AD]" : "text-gray-400"}`}>Regular</span>
                     <button
-                        onClick={() => setIsYearly(!isYearly)}
+                        onClick={() => setIsPrivate(!isPrivate)}
                         className="w-16 h-8 bg-gray-200 rounded-full relative transition-colors duration-300"
                     >
-                        <div className={`absolute top-1 left-1 w-6 h-6 bg-[#4D96AD] rounded-full transition-transform duration-300 ${isYearly ? "translate-x-8" : "translate-x-0"}`} />
+                        <div className={`absolute top-1 left-1 w-6 h-6 bg-[#4D96AD] rounded-full transition-transform duration-300 ${isPrivate ? "translate-x-8" : "translate-x-0"}`} />
                     </button>
-                    <span className={`text-sm font-bold ${isYearly ? "text-[#4D96AD]" : "text-gray-400"}`}>Yearly</span>
+                    <span className={`text-sm font-bold ${isPrivate ? "text-[#4D96AD]" : "text-gray-400"}`}>Private</span>
                 </div>
 
                 {/* Pricing Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center">
                     {plans.map((plan, i) => (
                         <div
                             key={i}
-                            className={`rounded-[40px] p-10 text-left flex flex-col gap-6 relative overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-2`}
+                            className={`rounded-[40px] p-10 text-left flex flex-col gap-6 relative overflow-hidden shadow-md`}
                             style={{
                                 backgroundColor: plan.color,
                                 color: plan.textColor,
                                 border: plan.color === "white" ? "1px solid #f0f0f0" : "none",
                                 zIndex: plan.color === "#FFD9E8" ? 20 : 10,
-                                transform: plan.color === "#FFD9E8" ? "scale(1.05)" : "none"
                             }}
                         >
                             {/* Decorative organic shapes inside cards */}
@@ -114,7 +105,8 @@ const PricingSection = () => {
                             <div className="relative">
                                 <h3 className="text-xl font-black mb-2">{plan.name}</h3>
                                 <div className="flex items-baseline gap-1">
-                                    <span className="text-4xl font-black">${plan.price}</span>
+                                    <span className="text-sm font-black mr-1">Rp</span>
+                                    <span className="text-3xl font-black">{plan.price}</span>
                                     <span className="text-sm opacity-70">/{plan.period}</span>
                                 </div>
                             </div>
@@ -129,13 +121,13 @@ const PricingSection = () => {
                             </ul>
 
                             <button
-                                className={`mt-auto py-4 rounded-2xl font-black whitespace-nowrap transition-all shadow-md group`}
+                                className={`mt-auto py-4 rounded-2xl font-black whitespace-nowrap shadow-md`}
                                 style={{
                                     backgroundColor: plan.color === "white" ? "#4D96AD" : "white",
                                     color: plan.color === "white" ? "white" : "#4D96AD"
                                 }}
                             >
-                                Choose Plan <span className="ml-1 group-hover:ml-2 transition-all">→</span>
+                                Choose Plan <span className="ml-1">→</span>
                             </button>
                         </div>
                     ))}

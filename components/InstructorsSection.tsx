@@ -48,17 +48,17 @@ const InstructorsSection = () => (
                     <h2 className="text-4xl md:text-5xl font-black text-[#4D96AD]">Our Expert Instructors</h2>
                 </div>
                 <div className="flex gap-3">
-                    <button className="w-10 h-10 rounded-xl border border-gray-100 bg-white flex items-center justify-center text-gray-300 hover:bg-[#4D96AD] hover:text-white transition-all shadow-sm">←</button>
-                    <button className="w-10 h-10 rounded-xl bg-[#4D96AD] flex items-center justify-center text-white shadow-lg shadow-blue-100 hover:bg-[#3d7a8c] transition-all">→</button>
+                    <button className="w-10 h-10 rounded-xl border border-gray-100 bg-white flex items-center justify-center text-gray-300 transition-all shadow-sm">←</button>
+                    <button className="w-10 h-10 rounded-xl bg-[#4D96AD] flex items-center justify-center text-white shadow-lg transition-all">→</button>
                 </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {instructors.map((inst, i) => (
-                    <div key={i} className="flex flex-col items-center group relative">
+                    <div key={i} className="flex flex-col items-center relative">
                         {/* Organic Teardrop Image Container - Floating above the card */}
                         <div
-                            className="w-56 h-64 md:w-64 md:h-72 mb-[-60px] relative z-20 flex items-center justify-center overflow-hidden border-[8px] border-white shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                            className="w-56 h-64 md:w-64 md:h-72 mb-[-60px] relative z-20 flex items-center justify-center overflow-hidden border-[8px] border-white shadow-2xl transition-transform duration-500"
                             style={{
                                 background: inst.color,
                                 borderRadius: "100px 100px 20px 100px",
@@ -78,7 +78,7 @@ const InstructorsSection = () => (
                                     <a
                                         key={icon}
                                         href="#"
-                                        className="text-gray-400 hover:text-[#4D96AD] transition-colors text-sm font-bold"
+                                        className="text-gray-400 transition-colors text-sm font-bold"
                                     >
                                         {icon}
                                     </a>

@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
     title: "CatbearArtstudio Official",
-    description: "Welcome to our company profile website",
+    description: "Welcome to our CatbearArtstudio Official",
     icons: {
         icon: "/images/logoheader.jpeg",
     },
