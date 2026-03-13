@@ -4,12 +4,11 @@ import Link from "next/link";
 
 interface SubNavbarProps {
     title: string;
-    subtitle?: string;
     highlightWord?: string;
     icon?: string;
 }
 
-const SubNavbar = ({ title, subtitle, highlightWord, icon = "🎨" }: SubNavbarProps) => {
+const SubNavbar = ({ title, highlightWord, icon = "🎨" }: SubNavbarProps) => {
     return (
         <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300 pointer-events-none">
             {/* Topbar */}
