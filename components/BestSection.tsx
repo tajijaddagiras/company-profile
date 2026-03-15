@@ -28,10 +28,10 @@ const DoodleSpace = () => (
 );
 
 const cards = [
-    { icon: "🎓", title: "Teacher Training And Progress", desc: "Adipiscing elit praesent luctus laoreet acipis. Curabitur tellus lacus aigue in pulvinar.", bg: "#4D96AD" },
-    { icon: "🏫", title: "Wiring Selection 24/7", desc: "Adipiscing elit praesent luctus laoreet acipis. Curabitur tellus lacus aigue in pulvinar.", bg: "#E0E7FF" },
-    { icon: "📚", title: "Advanced Placement Courses", desc: "Adipiscing elit praesent luctus laoreet acipis. Curabitur tellus lacus aigue in pulvinar.", bg: "#D5EED1" },
-    { icon: "🎻", title: "Self-Controlled Gifted Programs", desc: "Adipiscing elit praesent luctus laoreet acipis. Curabitur tellus lacus aigue in pulvinar.", bg: "#FFD9E8" },
+    { icon: "📘", title: "Structured Curriculum", desc: "Materi disusun secara bertahap dari dasar hingga tingkat lanjutan", bg: "#4D96AD" },
+    { icon: "👨‍🎨", title: "Experienced Mentors", desc: "Dibimbing oleh mentor yang berpengalaman di bidang seni dan desain digital", bg: "#E0E7FF" },
+    { icon: "🎮", title: "Interactive Classes", desc: "Belajar dengan metode yang menyenangkan dan interaktif", bg: "#D5EED1" },
+    { icon: "💡", title: "Focus on Creativity", desc: "Siswa didorong untuk mengembangkan ide dan imajinasi mereka", bg: "#FFD9E8" },
 ];
 
 const BestSection = () => (

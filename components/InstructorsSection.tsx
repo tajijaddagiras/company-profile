@@ -12,13 +12,11 @@ const NoImg = ({ className = "", round = false, style }: { className?: string; r
 );
 
 const instructors = [
-    { name: "Glen MacLaren", role: "Sports Teacher", color: "#009DA6" },
-    { name: "Henry Wood", role: "Math Teacher", color: "#3BACEF" },
-    { name: "Maria Serpana", role: "English Teacher", color: "#EF8FA1" },
+    { name: "Maria Serpana", role: "Art Teacher", color: "#EF8FA1" },
 ];
 
 const InstructorsSection = () => (
-    <section id="instructors" className="bg-[#FFCDE4] py-24 px-6 md:px-20 relative overflow-hidden">
+    <section id="instructors" className="bg-[#FFCDE4] py-20 px-6 md:px-20 relative overflow-hidden">
 
         {/* Doodles */}
         {/* Cactus on middle-left border */}
@@ -42,51 +40,46 @@ const InstructorsSection = () => (
         <div className="absolute right-1/4 top-1/3 opacity-30 text-[#4D96AD] text-2xl rotate-12">⭐</div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-            <div className="flex items-center justify-between mb-16">
-                <div>
-                    <p className="text-[#4D96AD] text-sm font-bold uppercase tracking-widest mb-3">Our Experts</p>
-                    <h2 className="text-4xl md:text-5xl font-black text-[#4D96AD]">Our Expert Instructors</h2>
-                </div>
-                <div className="flex gap-3">
-                    <button className="w-10 h-10 rounded-xl border border-gray-100 bg-white flex items-center justify-center text-gray-300 transition-all shadow-sm">←</button>
-                    <button className="w-10 h-10 rounded-xl bg-[#4D96AD] flex items-center justify-center text-white shadow-lg transition-all">→</button>
-                </div>
+            <div className="text-center mb-16">
+                <p className="text-[#4D96AD] text-sm font-bold uppercase tracking-widest mb-3">Our Experts</p>
+                <h2 className="text-4xl md:text-5xl font-black text-[#4D96AD]">Our Expert Instructor</h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {instructors.map((inst, i) => (
-                    <div key={i} className="flex flex-col items-center relative">
-                        {/* Organic Teardrop Image Container - Floating above the card */}
-                        <div
-                            className="w-56 h-64 md:w-64 md:h-72 mb-[-60px] relative z-20 flex items-center justify-center overflow-hidden border-[8px] border-white shadow-2xl transition-transform duration-500"
-                            style={{
-                                background: inst.color,
-                                borderRadius: "100px 100px 20px 100px",
-                                transform: i === 1 ? "translateY(-10px)" : "none"
-                            }}
-                        >
-                            <NoImg className="w-full h-full opacity-90" style={{ borderRadius: "92px 92px 12px 92px" }} />
-                        </div>
-
-                        {/* White Card Content */}
-                        <div className="bg-white w-full rounded-[40px] pt-20 pb-10 px-6 flex flex-col items-center text-center shadow-sm border border-gray-50">
-                            <h3 className="text-[#4D96AD] font-black text-xl mb-1 tracking-tight">{inst.name}</h3>
-                            <p className="text-gray-400 text-xs font-bold mb-8 uppercase tracking-wide">{inst.role}</p>
-
-                            <div className="flex gap-6 justify-center">
-                                {["f", "𝕏", "▶", "in"].map((icon) => (
-                                    <a
-                                        key={icon}
-                                        href="#"
-                                        className="text-gray-400 transition-colors text-sm font-bold"
-                                    >
-                                        {icon}
-                                    </a>
-                                ))}
+            <div className="flex justify-center">
+                <div className="w-full max-w-sm flex flex-col items-center relative">
+                    {instructors.map((inst, i) => (
+                        <React.Fragment key={i}>
+                            {/* Organic Teardrop Image Container - Floating above the card */}
+                            <div
+                                className="w-56 h-64 md:w-64 md:h-72 mb-[-60px] relative z-20 flex items-center justify-center overflow-hidden border-[8px] border-white shadow-2xl transition-transform duration-500"
+                                style={{
+                                    background: inst.color,
+                                    borderRadius: "100px 100px 20px 100px",
+                                }}
+                            >
+                                <NoImg className="w-full h-full opacity-90" style={{ borderRadius: "92px 92px 12px 92px" }} />
                             </div>
-                        </div>
-                    </div>
-                ))}
+
+                            {/* White Card Content */}
+                            <div className="bg-white w-full rounded-[40px] pt-20 pb-10 px-6 flex flex-col items-center text-center shadow-sm border border-gray-50">
+                                <h3 className="text-[#4D96AD] font-black text-xl mb-1 tracking-tight">{inst.name}</h3>
+                                <p className="text-gray-400 text-xs font-bold mb-8 uppercase tracking-wide">{inst.role}</p>
+
+                                <div className="flex gap-6 justify-center">
+                                    {["f", "𝕏", "▶", "in"].map((icon) => (
+                                        <a
+                                            key={icon}
+                                            href="#"
+                                            className="text-gray-400 transition-colors text-sm font-bold"
+                                        >
+                                            {icon}
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                        </React.Fragment>
+                    ))}
+                </div>
             </div>
         </div>
     </section>
