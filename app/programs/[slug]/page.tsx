@@ -68,7 +68,18 @@ const ProgramDetailPage = () => {
                     <div className="max-w-7xl mx-auto">
                         <div className="flex flex-col md:flex-row gap-12 items-center">
                             {/* Left: Cover Image Card */}
-                            <div className="w-full md:w-5/12 lg:w-4/12 flex justify-center">
+                            <div className="w-full md:w-5/12 lg:w-4/12 flex flex-col items-center">
+                                {/* Mobile-only Label: Above the book cover */}
+                                <div className="md:hidden text-center mb-6">
+                                    <h3 className="text-[#4D96AD] font-black text-2xl tracking-tight uppercase">BUKU DIGITAL</h3>
+                                    <div className="flex flex-col items-center gap-2 mt-1">
+                                        <p className="text-gray-400 text-sm font-bold">Ketuk untuk membaca</p>
+                                        <svg className="w-5 h-5 text-[#4D96AD] animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                        </svg>
+                                    </div>
+                                </div>
+
                                 <a
                                     href={program.bookUrl}
                                     target="_blank"
@@ -101,6 +112,25 @@ const ProgramDetailPage = () => {
                             {/* Right: Info */}
                             <div className="w-full md:w-7/12 lg:w-8/12">
                                 <div className="flex flex-col gap-4">
+                                    {/* Desktop-only Label: Above the Age/Title */}
+                                    <div className="hidden md:block mb-2">
+                                        <h3 className="text-[#4D96AD] font-black text-2xl tracking-tight uppercase">BUKU DIGITAL</h3>
+                                        <div className="flex items-center gap-3 mt-1">
+                                            <svg className="w-5 h-5 text-[#4D96AD] animate-[bounce-x_1s_infinite]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M11 19l-7-7m0 0l7-7m-7 7h18" />
+                                            </svg>
+                                            <p className="text-gray-400 text-sm font-bold">Ketuk untuk membaca</p>
+                                        </div>
+
+                                        {/* Inline style for custom bounce-x animation */}
+                                        <style jsx>{`
+                                            @keyframes bounce-x {
+                                                0%, 100% { transform: translateX(0); }
+                                                50% { transform: translateX(-4px); }
+                                            }
+                                        `}</style>
+                                    </div>
+
                                     <span className="text-[#4D96AD] font-bold uppercase tracking-widest text-sm">{program.age}</span>
                                     <h1 className="text-4xl md:text-5xl font-black text-[#4D96AD] leading-tight">
                                         {program.title}

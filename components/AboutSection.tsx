@@ -49,23 +49,20 @@ const AboutSection = () => (
                 <h2 className="text-3xl md:text-4xl font-black text-[#4D96AD] leading-tight mb-5">
                     Where Creativity Comes<br />to life
                 </h2>
-                <p className="text-gray-500 text-sm leading-relaxed mb-3 max-w-lg">
-                    Di Catbear Art Studio, siswa belajar dari dasar hingga mahir dengan metode yang menyenangkan, interaktif, dan mudah dipahami.
-                </p>
-                <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-lg">
-                    Mulai dari menggambar karakter, membuat ilustrasi digital, hingga menciptakan animasi 3D.
+                <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-lg text-justify">
+                    CatbearArtstudio adalah platform kursus kreatif yang berfokus pada pengembangan kemampuan seni dan desain digital bagi anak-anak dan remaja. Siswa belajar dari dasar hingga mahir dengan metode yang menyenangkan, interaktif, dan mudah dipahami. Mulai dari menggambar karakter, membuat ilustrasi digital, hingga menciptakan animasi 3D.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-6 mb-8">
                     <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full border border-gray-100 shadow-sm flex items-center justify-center text-xl text-[#4D96AD]">🏅</div>
+                        <div className="w-12 h-12 rounded-full bg-[#FFF5E1] border border-white shadow-sm flex items-center justify-center text-xl text-[#4D96AD]">🏅</div>
                         <div>
                             <p className="font-bold text-[#4D96AD] text-sm">Sport Program</p>
                             <p className="text-gray-400 text-xs max-w-[120px]">Aliquam eros vulputate valorem imperdiet.</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full border border-gray-100 shadow-sm flex items-center justify-center text-xl text-[#4D96AD]">🏫</div>
+                        <div className="w-12 h-12 rounded-full bg-[#FFF5E1] border border-white shadow-sm flex items-center justify-center text-xl text-[#4D96AD]">🏫</div>
                         <div>
                             <p className="font-bold text-[#4D96AD] text-sm">Easy To Learn</p>
                             <p className="text-gray-400 text-xs max-w-[120px]">Aliquam eros vulputate valorem imperdiet.</p>
@@ -75,8 +72,10 @@ const AboutSection = () => (
 
                 <div className="flex items-center gap-8 border-t border-gray-100 pt-8">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-white text-xs font-bold overflow-hidden bg-slate-800">
-                            <NoImg className="w-full h-full" round />
+                        <div className="w-10 h-10 rounded-full bg-[#FFF5E1] flex items-center justify-center text-[#4D96AD] shadow-sm">
+                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                            </svg>
                         </div>
                         <div>
                             <p className="text-sm font-bold text-[#4D96AD]">Ronald Richards</p>
@@ -84,7 +83,7 @@ const AboutSection = () => (
                         </div>
                     </div>
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-[#D5EED1] flex items-center justify-center text-[#4D96AD] text-sm">📞</div>
+                        <div className="w-10 h-10 rounded-full bg-[#FFF5E1] flex items-center justify-center text-[#4D96AD] text-sm">📞</div>
                         <div>
                             <p className="text-[10px] text-gray-400 uppercase font-bold">Call Us Now</p>
                             <p className="text-sm font-bold text-[#4D96AD]">+62 853-7131-5541</p>
