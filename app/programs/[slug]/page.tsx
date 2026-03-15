@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { useParams } from 'next/navigation';
+import Image from 'next/image';
 import { programs } from '@/constants/programs';
 import SubNavbar from '@/components/SubNavbar';
 import Masonry from '@/components/Masonry';
@@ -88,10 +89,11 @@ const ProgramDetailPage = () => {
                                 >
                                     {program.coverImage ? (
                                         <div className="w-full h-full rounded-[30px] overflow-hidden shadow-2xl border-8 border-white relative">
-                                            <img
+                                            <Image
                                                 src={program.coverImage}
                                                 alt={`${program.title} Cover`}
-                                                className="w-full h-full object-cover"
+                                                fill
+                                                className="object-cover"
                                             />
 
                                             {/* Hover Overlay: Strong Fog sliding down */}

@@ -1,13 +1,7 @@
 import React from "react";
+import Image from "next/image";
 
-const NoImg = ({ className = "", round = false }: { className?: string; round?: boolean }) => (
-    <div className={`bg-gray-300 flex flex-col items-center justify-center gap-1 ${round ? "rounded-full" : "rounded-2xl"} ${className}`}>
-        <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-        <span className="text-gray-400 text-xs font-medium">No Image</span>
-    </div>
-);
+
 
 const AboutSection = () => (
     <section id="about" className="bg-[#FFCDE4] py-20 px-6 md:px-20 relative overflow-hidden">
@@ -32,10 +26,11 @@ const AboutSection = () => (
                         className="w-80 h-80 overflow-hidden border-8 border-white shadow-xl relative z-10"
                         style={{ borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" }}
                     >
-                        <img
+                        <Image
                             src="/images/aboutgambar.PNG"
                             alt="About Us Main"
-                            className="w-full h-full object-cover"
+                            fill
+                            className="object-cover"
                         />
                     </div>
 
@@ -53,40 +48,43 @@ const AboutSection = () => (
                     CatbearArtstudio adalah platform kursus kreatif yang berfokus pada pengembangan kemampuan seni dan desain digital bagi anak-anak dan remaja. Siswa belajar dari dasar hingga mahir dengan metode yang menyenangkan, interaktif, dan mudah dipahami. Mulai dari menggambar karakter, membuat ilustrasi digital, hingga menciptakan animasi 3D.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-6 mb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8 mb-8 relative">
+                    {/* Top Row */}
                     <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full bg-[#FFF5E1] border border-white shadow-sm flex items-center justify-center text-xl text-[#4D96AD]">🏅</div>
-                        <div>
-                            <p className="font-bold text-[#4D96AD] text-sm">Sport Program</p>
-                            <p className="text-gray-400 text-xs max-w-[120px]">Aliquam eros vulputate valorem imperdiet.</p>
+                        <div className="w-12 h-12 rounded-full bg-[#FFF5E1] border border-white shadow-sm flex items-center justify-center text-xl text-[#4D96AD] flex-shrink-0">🏅</div>
+                        <div className="min-w-0">
+                            <p className="font-bold text-[#4D96AD] text-sm truncate">Creative Art Curriculum</p>
+                            <p className="text-gray-400 text-xs">Kurikulum Terstruktur</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full bg-[#FFF5E1] border border-white shadow-sm flex items-center justify-center text-xl text-[#4D96AD]">🏫</div>
-                        <div>
-                            <p className="font-bold text-[#4D96AD] text-sm">Easy To Learn</p>
-                            <p className="text-gray-400 text-xs max-w-[120px]">Aliquam eros vulputate valorem imperdiet.</p>
+                        <div className="w-12 h-12 rounded-full bg-[#FFF5E1] border border-white shadow-sm flex items-center justify-center text-xl text-[#4D96AD] flex-shrink-0">🏫</div>
+                        <div className="min-w-0">
+                            <p className="font-bold text-[#4D96AD] text-sm truncate">Step-by-Step Learning</p>
+                            <p className="text-gray-400 text-xs">Metode belajar sederhana & interaktif</p>
                         </div>
                     </div>
-                </div>
 
-                <div className="flex items-center gap-8 border-t border-gray-100 pt-8">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-[#FFF5E1] flex items-center justify-center text-[#4D96AD] shadow-sm">
+                    {/* Separator Line (Grid Span) */}
+                    <div className="col-span-full border-t border-gray-100/50"></div>
+
+                    {/* Bottom Row */}
+                    <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-[#FFF5E1] border border-white shadow-sm flex items-center justify-center text-[#4D96AD] flex-shrink-0">
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                             </svg>
                         </div>
-                        <div>
-                            <p className="text-sm font-bold text-[#4D96AD]">Ronald Richards</p>
+                        <div className="min-w-0">
+                            <p className="text-sm font-bold text-[#4D96AD] truncate">Ronald Richards</p>
                             <p className="text-xs text-gray-400">Co-Founder</p>
                         </div>
                     </div>
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-[#FFF5E1] flex items-center justify-center text-[#4D96AD] text-sm">📞</div>
-                        <div>
+                    <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-[#FFF5E1] border border-white shadow-sm flex items-center justify-center text-sm text-[#4D96AD] flex-shrink-0">📞</div>
+                        <div className="min-w-0">
                             <p className="text-[10px] text-gray-400 uppercase font-bold">Call Us Now</p>
-                            <p className="text-sm font-bold text-[#4D96AD]">+62 853-7131-5541</p>
+                            <p className="text-sm font-bold text-[#4D96AD] truncate">+62 853-7131-5541</p>
                         </div>
                     </div>
                 </div>
@@ -94,10 +92,11 @@ const AboutSection = () => (
                 {/* Giraffe/USMut Placeholder top-right of content area (Enlarged) */}
                 <div className="absolute top-10 -right-24 hidden lg:block opacity-90 transition-all">
                     <div className="w-48 h-64 border-4 border-dashed border-[#FFD9E8] rounded-[40px] overflow-hidden shadow-lg bg-[#FFF5E1]">
-                        <img
+                        <Image
                             src="/images/usmut.png"
                             alt="About Us Secondary"
-                            className="w-full h-full object-cover"
+                            fill
+                            className="object-cover"
                         />
                     </div>
                 </div>

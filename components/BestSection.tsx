@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 
 
@@ -47,9 +48,9 @@ const BestSection = () => (
 
         <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-16 relative">
-                <p className="text-[#4D96AD] text-sm font-bold uppercase tracking-widest mb-3">Our Schools</p>
+                <p className="text-[#4D96AD] text-sm font-bold uppercase tracking-widest mb-3">Our Course</p>
                 <h2 className="text-4xl md:text-5xl font-black text-[#2D3561] leading-tight relative z-10">
-                    The Best Playschool<br />For Your Kid
+                    The Best Online Course<br />For Your Kid
                 </h2>
 
                 {/* Decorative floating icons around title */}
@@ -92,17 +93,20 @@ const BestSection = () => (
 
                         {/* Main Character with Cloud Overlay Placeholder */}
                         <div className="relative z-10 w-72 h-[450px] flex items-end justify-center">
-                            <img
+                            <Image
                                 src="/images/kartunwisuda.png"
                                 alt="Child Graduation"
-                                className="w-full h-full object-contain object-bottom"
+                                fill
+                                className="object-contain object-bottom"
                             />
                             {/* Overlay using awan.png as a massive decorative element on the top right */}
                             <div className="absolute -top-20 -right-72 pointer-events-none z-20">
-                                <img
+                                <Image
                                     src="/images/awan.png"
                                     alt="Cloud Decoration"
-                                    className="w-[500px] max-w-none h-auto opacity-70 animate-pulse"
+                                    width={500}
+                                    height={300}
+                                    className="max-w-none opacity-70 animate-pulse"
                                 />
                             </div>
                         </div>
