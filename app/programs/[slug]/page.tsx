@@ -31,7 +31,10 @@ const ProgramDetailPage = () => {
                 { id: '2', ext: 'jpeg' },
                 { id: '3', ext: 'jpeg' },
                 { id: '4', ext: 'png' },
-                { id: '5', ext: 'png' }
+                { id: '5', ext: 'png' },
+                { id: '6', ext: 'png' },
+                { id: '7', ext: 'png' },
+                { id: '8', ext: 'png' }
             ];
             return threeDImages.map((img, i) => ({
                 id: `karya-3d-${img.id}`,
