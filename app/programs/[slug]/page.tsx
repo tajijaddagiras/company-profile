@@ -24,6 +24,35 @@ const ProgramDetailPage = () => {
 
     // Generate gallery items
     const galleryItems = React.useMemo(() => {
+        if (slug === 'drawing') {
+            const drawingImages = [
+                { id: '1', ext: 'png' },
+                { id: '2', ext: 'png' },
+                { id: '3', ext: 'png' }
+            ];
+            const existingIds = [1, 2, 3, 4, 5, 6, 7, 9, 12];
+            
+            const drawingItems = drawingImages.map((img, i) => ({
+                id: `karya-drawing-${img.id}`,
+                img: `/images/drawing${img.id}.${img.ext}`,
+                url: `/images/drawing${img.id}.${img.ext}`,
+                height: [450, 550, 480][i % 3],
+            }));
+
+            const existingItems = existingIds.map((idNum, i) => {
+                const id = idNum.toString();
+                const heights = [400, 600, 300, 500, 450, 550, 350, 480];
+                return {
+                    id: `karya-default-${id}-${i}`,
+                    img: `/images/karya${id}.jpeg`,
+                    url: `/images/karya${id}.jpeg`,
+                    height: heights[i % heights.length],
+                };
+            });
+
+            return [...drawingItems, ...existingItems];
+        }
+
         if (slug === '3d-animation') {
             // Specific images for 3D Animation with their respective extensions
             const threeDImages = [
@@ -42,6 +71,10 @@ const ProgramDetailPage = () => {
                 url: `/images/karya3d${img.id}.${img.ext}`,
                 height: [500, 400, 550, 450, 500][i % 5],
             }));
+        }
+
+        if (slug === 'digital-design') {
+            return []; // Empty gallery as requested
         }
 
         // Default gallery items for other programs (only using existing IDs)
@@ -124,7 +157,7 @@ const ProgramDetailPage = () => {
                                             <svg className="w-5 h-5 text-[#4D96AD] animate-[bounce-x_1s_infinite]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M11 19l-7-7m0 0l7-7m-7 7h18" />
                                             </svg>
-                                            <p className="text-gray-400 text-sm font-bold">Ketuk untuk membaca</p>
+                                            <p className="text-gray-400 text-sm font-bold uppercase tracking-tight">Baca Buku {program.title}</p>
                                         </div>
 
                                         {/* Inline style for custom bounce-x animation */}
@@ -166,17 +199,25 @@ const ProgramDetailPage = () => {
                             <div className="w-24 h-2 bg-pink-400 mx-auto mt-4 rounded-full opacity-50"></div>
                         </div>
 
-                        {/* Masonry Results */}
+                        {/* Masonry Results or Placeholder */}
                         <div className="w-full">
-                            <Masonry
-                                items={galleryItems}
-                                animateFrom="bottom"
-                                stagger={0.1}
-                                duration={0.8}
-                                scaleOnHover={true}
-                                hoverScale={0.97}
-                                blurToFocus={true}
-                            />
+                            {galleryItems.length > 0 ? (
+                                <Masonry
+                                    items={galleryItems}
+                                    animateFrom="bottom"
+                                    stagger={0.1}
+                                    duration={0.8}
+                                    scaleOnHover={true}
+                                    hoverScale={0.97}
+                                    blurToFocus={true}
+                                />
+                            ) : (
+                                <div className="flex flex-col items-center justify-center py-20 bg-white/30 rounded-[40px] border-4 border-dashed border-pink-300">
+                                    <div className="text-6xl mb-4 opacity-50">🎨</div>
+                                    <p className="text-[#4D96AD] text-xl font-black uppercase tracking-tight">Belum ada hasil karya desain</p>
+                                    <p className="text-gray-500 text-sm mt-2 font-medium">Siswa sedang dalam proses menciptakan karya keren!</p>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

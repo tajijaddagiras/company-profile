@@ -8,13 +8,23 @@ const GalleryPage = () => {
     // Existing karya ids: 1-7, 9, 12-19 (.jpeg)
     const regularIds = [1, 2, 3, 4, 5, 6, 7, 9, 12, 13, 14, 15, 16, 17, 18, 19];
     
-    // 3D karya ids: 1-3 (.jpeg), 4-5 (.png)
+    // 3D karya ids: 1-3 (.jpeg), 4-8 (.png)
     const threeDWorks = [
         { id: '1', ext: 'jpeg' },
         { id: '2', ext: 'jpeg' },
         { id: '3', ext: 'jpeg' },
         { id: '4', ext: 'png' },
-        { id: '5', ext: 'png' }
+        { id: '5', ext: 'png' },
+        { id: '6', ext: 'png' },
+        { id: '7', ext: 'png' },
+        { id: '8', ext: 'png' }
+    ];
+
+    // Drawing karya ids: 1-3 (.png)
+    const drawingWorks = [
+        { id: '1', ext: 'png' },
+        { id: '2', ext: 'png' },
+        { id: '3', ext: 'png' }
     ];
 
     const items = [
@@ -33,6 +43,12 @@ const GalleryPage = () => {
             img: `/images/karya3d${work.id}.${work.ext}`,
             url: `/images/karya3d${work.id}.${work.ext}`,
             height: [500, 400, 550, 450, 500][i % 5],
+        })),
+        ...drawingWorks.map((work, i) => ({
+            id: `drawing-${work.id}`,
+            img: `/images/drawing${work.id}.${work.ext}`,
+            url: `/images/drawing${work.id}.${work.ext}`,
+            height: [450, 550, 480][i % 3],
         }))
     ];
 
