@@ -14,12 +14,6 @@ const testimonials = [
         name: "Joel Derren",
         role: "Student",
         photo: "/images/testi2.jpeg"
-    },
-    {
-        quote: "The instructors are incredibly patient and the curriculum is perfectly balanced between play and learning. My daughter has blossomed so much since joining the preschool program last year.",
-        name: "Jane Smith",
-        role: "Parent",
-        photo: null
     }
 ];
 
