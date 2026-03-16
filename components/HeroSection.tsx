@@ -84,14 +84,7 @@ const HeroSection = () => {
                         Kelas kreatif untuk anak dan remaja yang ingin mengembangkan bakat menggambar, desain digital, dan animasi
                     </p>
 
-                    <div className="flex gap-4 flex-wrap items-center">
-                        <a href="#contact" className="bg-[#4D96AD] text-white px-7 py-3 rounded-full font-bold hover:bg-[#3d7a8c] transition-all shadow-lg shadow-blue-100 text-sm">
-                            Explore More →
-                        </a>
-                        <a href="#about" className="border-2 border-[#4D96AD] text-[#4D96AD] px-7 py-3 rounded-full font-bold hover:bg-[#4D96AD] hover:text-white transition-all text-sm">
-                            Get In Touch →
-                        </a>
-                    </div>
+
 
                     {/* Doodle bus bottom-left of buttons */}
                     <div className="mt-6 opacity-60">
