@@ -10,6 +10,12 @@ const testimonials = [
         photo: "/images/testi1.jpeg"
     },
     {
+        quote: "Metode belajar miss nya sangat bagus, dengan cara membimbing murid untuk berkembang sangat baik. Terimakasih miss :)",
+        name: "Joel Derren",
+        role: "Student",
+        photo: "/images/testi2.jpeg"
+    },
+    {
         quote: "The instructors are incredibly patient and the curriculum is perfectly balanced between play and learning. My daughter has blossomed so much since joining the preschool program last year.",
         name: "Jane Smith",
         role: "Parent",
