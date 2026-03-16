@@ -110,6 +110,28 @@ const BestSection = () => (
                                 />
                             </div>
 
+                            {/* Painting decoration - Aligned with cloud but below it - Smaller and Lower - Nudged Up Very Slightly */}
+                            <div className="absolute top-76 right-[40px] pointer-events-none z-20">
+                                <Image
+                                    src="/images/lukisan.PNG"
+                                    alt="Painting Decoration"
+                                    width={240}
+                                    height={150}
+                                    className="max-w-none rotate-3"
+                                />
+                            </div>
+
+                            {/* Jar decoration - Aligned with painting - Precise Nudge Down (350px) */}
+                            <div className="absolute top-[350px] right-[5px] pointer-events-none z-20">
+                                <Image
+                                    src="/images/toples.PNG"
+                                    alt="Jar Decoration"
+                                    width={180}
+                                    height={180}
+                                    className="max-w-none opacity-90"
+                                />
+                            </div>
+
                             {/* Additional clouds stacked and overlapped - Lowered and shifted right again */}
                             <div className="absolute -top-15 -left-5 pointer-events-none z-20">
                                 <Image
