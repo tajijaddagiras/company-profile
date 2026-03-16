@@ -40,7 +40,12 @@ const ProgramsSection = () => (
                             }}
                         >
                             <div className="flex flex-col gap-1">
-                                <h3 className="text-2xl md:text-3xl font-black tracking-tight drop-shadow-sm mb-2">{p.title}</h3>
+                                <h3 
+                                    className="text-2xl md:text-3xl font-black tracking-tight drop-shadow-sm mb-2"
+                                    style={{ color: p.titleColor || 'inherit' }}
+                                >
+                                    {p.title}
+                                </h3>
                             </div>
 
                             <p className="text-sm leading-relaxed opacity-90 px-2">

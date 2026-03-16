@@ -76,8 +76,8 @@ const AboutSection = () => (
                             </svg>
                         </div>
                         <div className="min-w-0">
-                            <p className="text-sm font-bold text-[#4D96AD] truncate">Ronald Richards</p>
-                            <p className="text-xs text-gray-400">Co-Founder</p>
+                            <p className="text-sm font-bold text-[#4D96AD] truncate">Zill Sekar Gading</p>
+                            <p className="text-xs text-gray-400">Admin CatbearArtstudio</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-4">

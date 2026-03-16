@@ -99,14 +99,34 @@ const BestSection = () => (
                                 fill
                                 className="object-contain object-bottom"
                             />
-                            {/* Overlay using awan.png as a massive decorative element on the top right */}
-                            <div className="absolute -top-20 -right-72 pointer-events-none z-20">
+                            {/* Overlay using awan.png - Center-Top - Lowered and shifted right again */}
+                            <div className="absolute -top-26 right-[-260px] pointer-events-none z-20">
                                 <Image
                                     src="/images/awan.png"
-                                    alt="Cloud Decoration"
-                                    width={500}
-                                    height={300}
-                                    className="max-w-none opacity-70 animate-pulse"
+                                    alt="Cloud Main"
+                                    width={480}
+                                    height={280}
+                                    className="max-w-none opacity-60 animate-pulse"
+                                />
+                            </div>
+
+                            {/* Additional clouds stacked and overlapped - Lowered and shifted right again */}
+                            <div className="absolute -top-15 -left-5 pointer-events-none z-20">
+                                <Image
+                                    src="/images/awan.png"
+                                    alt="Cloud Clump Left"
+                                    width={420}
+                                    height={250}
+                                    className="max-w-none opacity-50 animate-pulse duration-[5000ms]"
+                                />
+                            </div>
+                            <div className="absolute top-0 left-25 pointer-events-none z-10">
+                                <Image
+                                    src="/images/awan.png"
+                                    alt="Cloud Clump Small"
+                                    width={320}
+                                    height={190}
+                                    className="max-w-none opacity-40 animate-pulse duration-[7000ms]"
                                 />
                             </div>
                         </div>

@@ -63,6 +63,13 @@ const HeroSection = () => {
                 <DoodleStar />
             </div>
 
+            {/* Centered Slogan - Font matched with Heading style */}
+            <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10 md:mb-8 text-center relative z-20">
+                <span className="text-[#2D3561] text-lg md:text-2xl font-black">
+                    &quot;Every Child Can Create — with CatBear Art Studio&quot;
+                </span>
+            </div>
+
             <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-8 px-6 md:px-12">
                 {/* ── Left Content ── */}
                 <div className="flex-1 z-10 pb-16 relative">
@@ -74,13 +81,6 @@ const HeroSection = () => {
                             <span>Online Course (Kids-Teens)</span>
                             <span className="text-[#4D96AD]">✦</span>
                         </div>
-                    </div>
-
-                    {/* New Absolute Slogan (Pushed FAR right, towards the image) */}
-                    <div className="absolute top-0 right-0 md:-right-32 lg:-right-64 hidden xl:-right-96 md:block z-30 pointer-events-none w-max">
-                        <span className="text-[#2D3561] text-lg md:text-xl font-black italic">
-                            &quot;Every Child Can Create — with CatBear Art Studio&quot;
-                        </span>
                     </div>
 
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#4D96AD] leading-tight mb-5">
@@ -102,13 +102,6 @@ const HeroSection = () => {
 
                 {/* ── Right — Organic blob + image ── */}
                 <div className="flex-1 relative flex justify-center items-end min-h-[450px] pb-16 md:pb-28">
-
-                    {/* Mobile Only Inline Slogan */}
-                    <div className="md:hidden absolute -top-8 left-0 z-30 pointer-events-none w-full text-center">
-                        <span className="text-[#2D3561] text-sm font-black italic">
-                            &quot;Every Child Can Create — with CatBear Art Studio&quot;
-                        </span>
-                    </div>
 
                     {/* Large organic orange blob */}
                     <div

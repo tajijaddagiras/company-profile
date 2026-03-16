@@ -1,4 +1,16 @@
-export const programs = [
+export interface Program {
+    id: string;
+    title: string;
+    age: string;
+    desc: string;
+    color: string;
+    textColor: string;
+    titleColor?: string;
+    coverImage: string;
+    bookUrl: string;
+}
+
+export const programs: Program[] = [
     {
         id: "drawing",
         title: "Drawing",
@@ -16,6 +28,7 @@ export const programs = [
         desc: "Dirancang khusus untuk anak-anak dan remaja yang ingin mengembangkan keterampilan di bidang desain digital dan branding modern. Kursus ini tidak hanya mengajarkan cara mengunakan software profesional seperti Adobe Photoshop, Ilustrator, After Efects, dan Premiere Pro, tetapi juga membentuk pemahaman mendalam mengenai estetika visual, komunikasi desain, dan kreatifitas digital yang aplikatif di dunia nyata.",
         color: "#FFD9E8",
         textColor: "text-[#4D96AD]",
+        titleColor: "#4D96AD",
         coverImage: "/images/cardbukudesain.png",
         bookUrl: "https://drive.google.com/drive/folders/1tZSDN4qxoFrv6Tv3ea5argX19ioaUD2z?hl=ID"
     },
@@ -26,6 +39,7 @@ export const programs = [
         desc: "Dirancang khusus untuk anak-anak dan remaja yang ingin menjelajahi dunia animasi 3D dengan pendekatan yang menyenangkan, terstruktur, dan progresif. Dengan menggunakan software open-source populer, Blender, siswa akan belajar dari dasar hingga mampu menciptakan karakter, environment, dan animasi sinematik mereka sendiri.",
         color: "#D5EED1",
         textColor: "text-[#4D96AD]",
+        titleColor: "#FFFFFF",
         coverImage: "/images/coverbuku3d.png",
         bookUrl: "https://drive.google.com/drive/folders/1eszIpxPXpE-bz8uxkVq6EarIEroQL8kN?hl=ID"
     },

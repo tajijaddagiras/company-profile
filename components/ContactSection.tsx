@@ -21,9 +21,9 @@ const ContactSection = () => {
         // untuk memastikan emoji terkirim dengan sempurna di semua browser/HP.
         const fullMessage = "Halo Admin Catbear Art Studio! 🎨\n\n" +
             "Saya ingin bertanya/konsultasi mengenai program di Catbear. Berikut data saya:\n\n" +
-            "👤 *Nama:* " + formData.name + "\n" +
-            "📱 *No. HP/WA:* " + formData.phone + "\n" +
-            "💬 *Pesan:* " + formData.message + "\n\n" +
+            "👤 Nama: " + formData.name + "\n" +
+            "📱 No. HP/WA: " + formData.phone + "\n" +
+            "💬 Pesan: " + formData.message + "\n\n" +
             "Terima kasih! ✨";
 
         const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(fullMessage)}`;

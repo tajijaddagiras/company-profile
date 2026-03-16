@@ -109,15 +109,6 @@ const PricingSection = () => {
                                 ))}
                             </ul>
 
-                            <button
-                                className={`mt-auto py-4 rounded-2xl font-black whitespace-nowrap shadow-md`}
-                                style={{
-                                    backgroundColor: plan.color === "white" ? "#4D96AD" : "white",
-                                    color: plan.color === "white" ? "white" : "#4D96AD"
-                                }}
-                            >
-                                Choose Plan <span className="ml-1">→</span>
-                            </button>
                         </div>
                     ))}
                 </div>
