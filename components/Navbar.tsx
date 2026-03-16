@@ -58,14 +58,6 @@ const Navbar = () => {
 
                     {/* Right side */}
                     <div className="flex items-center gap-3">
-                        <button className="text-gray-400 hover:text-[#4D96AD] transition-colors">
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </button>
-                        <a href="#contact" className="bg-[#4D96AD] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-[#3d7a8c] transition-all shadow-md shadow-[#4D96AD]/20 flex items-center gap-1">
-                            Book A Seat <span>→</span>
-                        </a>
                         <button className="md:hidden text-gray-500" onClick={() => setOpen(!open)}>☰</button>
                     </div>
                 </nav>
