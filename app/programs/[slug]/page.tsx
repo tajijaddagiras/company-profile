@@ -110,7 +110,7 @@ const ProgramDetailPage = () => {
                                 <div className="md:hidden text-center mb-6">
                                     <h3 className="text-[#4D96AD] font-black text-2xl tracking-tight uppercase">BUKU DIGITAL</h3>
                                     <div className="flex flex-col items-center gap-2 mt-1">
-                                        <p className="text-gray-400 text-sm font-bold">Ketuk untuk membaca</p>
+                                        <p className="text-gray-400 text-sm font-bold uppercase tracking-tight">Baca Buku {program.title}</p>
                                         <svg className="w-5 h-5 text-[#4D96AD] animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                                         </svg>

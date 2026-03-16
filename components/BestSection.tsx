@@ -121,13 +121,13 @@ const BestSection = () => (
                                 />
                             </div>
 
-                            {/* Jar decoration - Aligned with painting - Precise Nudge Down (350px) */}
-                            <div className="absolute top-[350px] right-[5px] pointer-events-none z-20">
+                            {/* Jar decoration - Aligned with painting - Precise Nudge Down (320px) - Resized to 240px */}
+                            <div className="absolute top-[320px] right-[5px] pointer-events-none z-20">
                                 <Image
                                     src="/images/toples.PNG"
                                     alt="Jar Decoration"
-                                    width={180}
-                                    height={180}
+                                    width={240}
+                                    height={240}
                                     className="max-w-none opacity-90"
                                 />
                             </div>
