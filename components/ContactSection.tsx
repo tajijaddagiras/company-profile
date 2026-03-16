@@ -17,22 +17,26 @@ const ContactSection = () => {
         // Admin WhatsApp Number
         const whatsappNumber = "6285371315541";
 
-        // Construct a polite message
-        const fullMessage = `Halo Admin Catbear Art Studio! 👋
+        // Solusi: Menggunakan pemformatan string eksplisit dan endpoint API resmi 
+        // untuk memastikan emoji terkirim dengan sempurna di semua browser/HP.
+        const fullMessage = "Halo Admin Catbear Art Studio! 🎨\n\n" +
+            "Saya ingin bertanya/konsultasi mengenai program di Catbear. Berikut data saya:\n\n" +
+            "👤 *Nama:* " + formData.name + "\n" +
+            "📱 *No. HP/WA:* " + formData.phone + "\n" +
+            "💬 *Pesan:* " + formData.message + "\n\n" +
+            "Terima kasih! ✨";
 
-Saya ingin bertanya/konsultasi mengenai program di Catbear. Berikut data saya:
-
-👤 *Nama:* ${formData.name}
-📱 *No. HP/WA:* ${formData.phone}
-💬 *Pesan:* ${formData.message}
-
-Terima kasih! ✨`;
-
-        const encodedMessage = encodeURIComponent(fullMessage);
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(fullMessage)}`;
 
         // Redirect to WhatsApp
         window.open(whatsappUrl, "_blank");
+
+        // Reset form fields
+        setFormData({
+            name: "",
+            phone: "",
+            message: ""
+        });
     };
 
     return (
@@ -106,19 +110,19 @@ Terima kasih! ✨`;
                         </form>
                     </div>
 
-                {/* Floating flower doodle on left border */}
-                <div className="absolute left-[-20px] top-1/2 -translate-y-1/2 text-white/20 opacity-40 z-20">
-                    <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2L13 9L20 10L13 11L12 18L11 11L4 10L11 9L12 2Z" />
-                    </svg>
+                    {/* Floating flower doodle on left border */}
+                    <div className="absolute left-[-20px] top-1/2 -translate-y-1/2 text-white/20 opacity-40 z-20">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L13 9L20 10L13 11L12 18L11 11L4 10L11 9L12 2Z" />
+                        </svg>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        {/* Section Straight Bottom to match next section (Footer Cream) */}
-        <div className="absolute bottom-0 left-0 w-full h-px bg-[#F7F2D4]" />
-    </section>
-);
+            {/* Section Straight Bottom to match next section (Footer Cream) */}
+            <div className="absolute bottom-0 left-0 w-full h-px bg-[#F7F2D4]" />
+        </section>
+    );
 };
 
 export default ContactSection;
