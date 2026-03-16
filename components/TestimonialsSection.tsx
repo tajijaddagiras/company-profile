@@ -66,7 +66,7 @@ const TestimonialsSection = () => {
                     </button>
 
                     <p className="text-[#4D96AD] text-xs font-bold uppercase tracking-widest mb-3">Testimonials</p>
-                    <h2 className="text-3xl font-black text-[#4D96AD] mb-8">What Clients Say</h2>
+                    <h2 className="text-3xl font-black text-[#4D96AD] mb-8">What Our Students Say</h2>
 
                     {/* Photo at the top */}
                     <div className="relative group mb-6">
@@ -115,7 +115,12 @@ const TestimonialsSection = () => {
                 <div className="absolute -right-20 bottom-1/4 w-40 h-40 bg-blue-100/30 rounded-full blur-3xl" />
             </div>
 
-
+            {/* Wavy Jagged Bottom Transition to match "Our Course" style (transitions to Blue Contact) */}
+            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+                <svg viewBox="0 0 1440 60" fill="#CCF4FF" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 block">
+                    <path d="M0,60 L0,30 Q30,60 60,30 Q90,60 120,30 Q150,60 180,30 Q210,60 240,30 Q270,60 300,30 Q330,60 360,30 Q390,60 420,30 Q450,60 480,30 Q510,60 540,30 Q570,60 600,30 Q630,60 660,30 Q690,60 720,30 Q750,60 780,30 Q810,60 840,30 Q870,60 900,30 Q930,60 960,30 Q990,60 1020,30 Q1050,60 1080,30 Q1110,60 1140,30 Q1170,60 1200,30 Q1230,60 1260,30 Q1290,60 1320,30 Q1350,60 1380,30 Q1410,60 1440,30 L1440,60 Z" fill="#CCF4FF" />
+                </svg>
+            </div>
         </section>
     );
 };

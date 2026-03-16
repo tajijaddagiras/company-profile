@@ -12,7 +12,13 @@ const NoImg = ({ className = "", round = false, style }: { className?: string; r
 );
 
 const instructors = [
-    { name: "Maria Serpana", role: "Art Teacher", color: "#EF8FA1" },
+    {
+        name: "Catherine Maria",
+        role: "Founder & CEO of Catbear Art Studio",
+        desc: "Catbear Art Studio didirikan dengan keyakinan bahwa setiap anak memiliki talenta yang unik dan berharga. Kami ingin membantu anak-anak menyadari bahwa tidak ada kemampuan yang terlalu kecil untuk dikembangkan.\n\nMelalui seni dan kreativitas, kami mendampingi mereka untuk menemukan potensi terbaik dalam diri mereka, membangun rasa percaya diri, dan mempersiapkan masa depan yang lebih cerah.\n\nKami percaya bahwa meskipun mereka masih kecil, imajinasi dan bakat mereka memiliki kekuatan besar untuk membuka banyak kemungkinan di masa depan.",
+        color: "#EF8FA1",
+        photo: "/images/instruktor.png"
+    },
 ];
 
 const InstructorsSection = () => (
@@ -42,45 +48,54 @@ const InstructorsSection = () => (
         <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-16">
                 <p className="text-[#4D96AD] text-sm font-bold uppercase tracking-widest mb-3">Our Experts</p>
-                <h2 className="text-4xl md:text-5xl font-black text-[#4D96AD]">Our Expert Instructor</h2>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#4D96AD] leading-tight max-w-4xl mx-auto">
+                    Catherine Maria — Founder & CEO of Catbear Art Studio
+                </h2>
             </div>
 
             <div className="flex justify-center">
-                <div className="w-full max-w-sm flex flex-col items-center relative">
+                <div className="w-full max-w-4xl flex flex-col items-center relative">
                     {instructors.map((inst, i) => (
                         <React.Fragment key={i}>
                             {/* Organic Teardrop Image Container - Floating above the card */}
                             <div
-                                className="w-56 h-64 md:w-64 md:h-72 mb-[-60px] relative z-20 flex items-center justify-center overflow-hidden border-[8px] border-white shadow-2xl transition-transform duration-500"
+                                className="w-56 h-64 md:w-64 md:h-72 mb-[-80px] relative z-20 flex items-center justify-center overflow-hidden border-[8px] border-white shadow-2xl transition-transform duration-500"
                                 style={{
                                     background: inst.color,
                                     borderRadius: "100px 100px 20px 100px",
                                 }}
                             >
-                                <NoImg className="w-full h-full opacity-90" style={{ borderRadius: "92px 92px 12px 92px" }} />
+                                {inst.photo ? (
+                                    <img
+                                        src={inst.photo}
+                                        alt={inst.name}
+                                        className="w-full h-full object-cover"
+                                        style={{ borderRadius: "92px 92px 12px 92px" }}
+                                    />
+                                ) : (
+                                    <NoImg className="w-full h-full opacity-90" style={{ borderRadius: "92px 92px 12px 92px" }} />
+                                )}
                             </div>
 
-                            {/* White Card Content */}
-                            <div className="bg-white w-full rounded-[40px] pt-20 pb-10 px-6 flex flex-col items-center text-center shadow-sm border border-gray-50">
-                                <h3 className="text-[#4D96AD] font-black text-xl mb-1 tracking-tight">{inst.name}</h3>
-                                <p className="text-gray-400 text-xs font-bold mb-8 uppercase tracking-wide">{inst.role}</p>
-
-                                <div className="flex gap-6 justify-center">
-                                    {["f", "𝕏", "▶", "in"].map((icon) => (
-                                        <a
-                                            key={icon}
-                                            href="#"
-                                            className="text-gray-400 transition-colors text-sm font-bold"
-                                        >
-                                            {icon}
-                                        </a>
-                                    ))}
+                            {/* White Card Content - Widened for better text flow */}
+                            <div className="bg-white w-full rounded-[60px] pt-32 pb-16 px-10 md:px-20 flex flex-col items-center text-center shadow-sm border border-gray-50">
+                                <div className="max-w-2xl px-4">
+                                    <p className="text-gray-600 text-base md:text-lg leading-relaxed whitespace-pre-line italic font-medium">
+                                        &quot;{inst.desc}&quot;
+                                    </p>
                                 </div>
                             </div>
                         </React.Fragment>
                     ))}
                 </div>
             </div>
+        </div>
+
+        {/* Wavy Bottom Transition to Pricing Section (Green) */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+            <svg viewBox="0 0 1440 60" fill="#D5EED1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-16 block">
+                <path d="M0,60 C120,20 240,20 360,60 C480,20 600,20 720,60 C840,20 960,20 1080,60 C1200,20 1320,20 1440,60 L1440,60 L0,60 Z" />
+            </svg>
         </div>
     </section>
 );

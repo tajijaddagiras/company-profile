@@ -4,65 +4,107 @@ import React from "react";
 
 
 
-const ContactSection = () => (
-    <section id="contact-us" className="bg-white py-24 px-6 md:px-20 relative overflow-hidden">
+const ContactSection = () => {
+    const [formData, setFormData] = React.useState({
+        name: "",
+        phone: "",
+        message: ""
+    });
 
-        <div className="max-w-7xl mx-auto relative z-10">
-            {/* Large Card with Background Image */}
-            <div
-                className="rounded-[50px] p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden shadow-2xl bg-[#4D96AD]"
-                style={{
-                    backgroundImage: 'url("/images/getpoto.PNG")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                }}
-            >
-                {/* Overlay to ensure readability and keep teal theme */}
-                <div className="absolute inset-0 bg-[#4D96AD]/80 mix-blend-multiply z-0" />
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        // Admin WhatsApp Number
+        const whatsappNumber = "6285371315541";
+
+        // Construct a polite message
+        const fullMessage = `Halo Admin Catbear Art Studio! 👋
+
+Saya ingin bertanya/konsultasi mengenai program di Catbear. Berikut data saya:
+
+👤 *Nama:* ${formData.name}
+📱 *No. HP/WA:* ${formData.phone}
+💬 *Pesan:* ${formData.message}
+
+Terima kasih! ✨`;
+
+        const encodedMessage = encodeURIComponent(fullMessage);
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+        // Redirect to WhatsApp
+        window.open(whatsappUrl, "_blank");
+    };
+
+    return (
+        <section id="contact-us" className="bg-[#CCF4FF] py-24 px-6 md:px-20 relative overflow-hidden">
+
+            <div className="max-w-7xl mx-auto relative z-10">
+                {/* Large Card with Background Image */}
+                <div
+                    className="rounded-[50px] p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden shadow-2xl bg-[#4D96AD]"
+                    style={{
+                        backgroundImage: 'url("/images/getpoto.PNG")',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    }}
+                >
+                    {/* Overlay to ensure readability and keep teal theme */}
+                    <div className="absolute inset-0 bg-[#4D96AD]/80 mix-blend-multiply z-0" />
 
 
 
-                {/* Form Side */}
-                <div className="flex-1 w-full relative z-20 max-w-2xl mx-auto md:mx-0">
-                    <p className="text-white/80 text-sm font-bold uppercase tracking-widest mb-3">Contact With Us</p>
-                    <h2 className="text-4xl md:text-5xl font-black text-white mb-10 leading-tight">
-                        How May We Help<br />You!
-                    </h2>
+                    {/* Form Side */}
+                    <div className="flex-1 w-full relative z-20 max-w-2xl mx-auto md:mx-0">
+                        <p className="text-white/80 text-sm font-bold uppercase tracking-widest mb-3">Get in Touch</p>
+                        <h2 className="text-4xl md:text-5xl font-black text-white mb-10 leading-tight">
+                            How May We Help<br />You!
+                        </h2>
 
-                    <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <form className="space-y-6" onSubmit={handleSubmit}>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-2">
+                                    <label className="text-white/90 text-xs font-bold uppercase ml-2">Your Name *</label>
+                                    <input
+                                        type="text"
+                                        required
+                                        placeholder="Tulis nama lengkap..."
+                                        className="w-full bg-white/10 border border-white/20 rounded-2xl p-4 text-white placeholder-white/40 focus:outline-none focus:bg-white/20 transition-all font-medium"
+                                        value={formData.name}
+                                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-white/90 text-xs font-bold uppercase ml-2">WhatsApp Number *</label>
+                                    <input
+                                        type="tel"
+                                        required
+                                        placeholder="0812xxxxxx"
+                                        className="w-full bg-white/10 border border-white/20 rounded-2xl p-4 text-white placeholder-white/40 focus:outline-none focus:bg-white/20 transition-all font-medium"
+                                        value={formData.phone}
+                                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                    />
+                                </div>
+                            </div>
+
                             <div className="space-y-2">
-                                <label className="text-white/90 text-xs font-bold uppercase ml-2">Your Name *</label>
-                                <input
-                                    type="text"
-                                    placeholder="Rahul Ali"
-                                    className="w-full bg-white/10 border border-white/20 rounded-2xl p-4 text-white placeholder-white/40 focus:outline-none focus:bg-white/20 transition-all"
+                                <label className="text-white/90 text-xs font-bold uppercase ml-2">Message</label>
+                                <textarea
+                                    rows={4}
+                                    placeholder="Apa yang ingin kamu tanyakan..."
+                                    className="w-full bg-white/10 border border-white/20 rounded-2xl p-4 text-white placeholder-white/40 focus:outline-none focus:bg-white/20 transition-all resize-none font-medium"
+                                    value={formData.message}
+                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                 />
                             </div>
-                            <div className="space-y-2">
-                                <label className="text-white/90 text-xs font-bold uppercase ml-2">Email Address *</label>
-                                <input
-                                    type="email"
-                                    placeholder="example@gmail.com"
-                                    className="w-full bg-white/10 border border-white/20 rounded-2xl p-4 text-white placeholder-white/40 focus:outline-none focus:bg-white/20 transition-all"
-                                />
-                            </div>
-                        </div>
 
-                        <div className="space-y-2">
-                            <label className="text-white/90 text-xs font-bold uppercase ml-2">Message</label>
-                            <textarea
-                                rows={4}
-                                placeholder="Write Message..."
-                                className="w-full bg-white/10 border border-white/20 rounded-2xl p-4 text-white placeholder-white/40 focus:outline-none focus:bg-white/20 transition-all resize-none"
-                            />
-                        </div>
-
-                        <button className="bg-white text-[#4D96AD] px-10 py-4 rounded-xl font-black hover:bg-opacity-90 transition-all shadow-lg flex items-center gap-2">
-                            GET IN TOUCH <span className="text-xl">→</span>
-                        </button>
-                    </form>
-                </div>
+                            <button
+                                type="submit"
+                                className="bg-white text-[#4D96AD] px-10 py-4 rounded-xl font-black hover:bg-opacity-90 transition-all shadow-lg flex items-center gap-2 active:scale-95"
+                            >
+                                GET IN TOUCH <span className="text-xl">→</span>
+                            </button>
+                        </form>
+                    </div>
 
                 {/* Floating flower doodle on left border */}
                 <div className="absolute left-[-20px] top-1/2 -translate-y-1/2 text-white/20 opacity-40 z-20">
@@ -73,13 +115,10 @@ const ContactSection = () => (
             </div>
         </div>
 
-        {/* Section Wave Bottom (lika liku) to match next section (white) */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
-            <svg viewBox="0 0 1440 60" fill="white" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-16">
-                <path d="M0,60 C120,20 240,20 360,60 C480,20 600,20 720,60 C840,20 960,20 1080,60 C1200,20 1320,20 1440,60 L1440,60 L0,60 Z" />
-            </svg>
-        </div>
+        {/* Section Straight Bottom to match next section (Footer Cream) */}
+        <div className="absolute bottom-0 left-0 w-full h-px bg-[#F7F2D4]" />
     </section>
 );
+};
 
 export default ContactSection;

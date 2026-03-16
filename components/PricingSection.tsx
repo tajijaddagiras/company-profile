@@ -44,21 +44,10 @@ const PricingSection = () => {
 
     return (
         <section id="pricing" className="bg-[#D5EED1] py-24 px-6 md:px-20 relative overflow-hidden">
-            {/* Wavy Top Transition from white section */}
-            <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0]">
-                <svg viewBox="0 0 1440 60" fill="white" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12">
-                    <path d="M0,0 C120,40 240,40 360,0 C480,40 600,40 720,0 C840,40 960,40 1080,0 C1200,40 1320,40 1440,0 L1440,0 L0,0 Z" />
-                </svg>
-            </div>
+            {/* Top Transition - Reduced spacing */}
+            <div className="h-4" />
 
             {/* Doodles */}
-            {/* Pencil/Brush doodle top-right */}
-            <div className="absolute top-20 right-10 md:right-20 pointer-events-none opacity-60 rotate-12">
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4D96AD" strokeWidth="1.5">
-                    <path d="M18 2L22 6L7 21L2 22L3 17L18 2Z" />
-                    <path d="M15 5L19 9" />
-                </svg>
-            </div>
             {/* Tree doodle bottom-left */}
             <div className="absolute bottom-10 left-10 pointer-events-none opacity-40">
                 <svg width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="#4D96AD" strokeWidth="2">
@@ -67,22 +56,22 @@ const PricingSection = () => {
                 </svg>
             </div>
 
-            <div className="max-w-7xl mx-auto text-center relative z-10 pt-10">
+            <div className="max-w-7xl mx-auto text-center relative z-10 pt-2">
                 <p className="text-[#4D96AD] text-sm font-bold uppercase tracking-widest mb-3">Our Pricing</p>
                 <h2 className="text-4xl md:text-5xl font-black text-[#4D96AD] mb-10 leading-tight">
                     Select A Plan According To<br />Your Requirements
                 </h2>
 
                 {/* Toggle Switch */}
-                <div className="flex items-center justify-center gap-4 mb-16">
-                    <span className={`text-sm font-bold ${!isPrivate ? "text-[#4D96AD]" : "text-gray-400"}`}>Regular</span>
+                <div className="flex items-center justify-center gap-6 mb-16">
+                    <span className={`text-lg md:text-xl font-black transition-colors duration-300 ${!isPrivate ? "text-[#4D96AD] drop-shadow-sm" : "text-gray-400 opacity-70"}`}>Regular</span>
                     <button
                         onClick={() => setIsPrivate(!isPrivate)}
-                        className="w-16 h-8 bg-gray-200 rounded-full relative transition-colors duration-300"
+                        className="w-24 h-12 bg-white rounded-full relative transition-colors duration-300 shadow-lg border-2 border-[#4D96AD]/20 focus:outline-none hover:shadow-xl"
                     >
-                        <div className={`absolute top-1 left-1 w-6 h-6 bg-[#4D96AD] rounded-full transition-transform duration-300 ${isPrivate ? "translate-x-8" : "translate-x-0"}`} />
+                        <div className={`absolute top-1 left-1 w-9 h-9 bg-[#4D96AD] rounded-full shadow-md transition-transform duration-300 ${isPrivate ? "translate-x-12" : "translate-x-0"}`} />
                     </button>
-                    <span className={`text-sm font-bold ${isPrivate ? "text-[#4D96AD]" : "text-gray-400"}`}>Private</span>
+                    <span className={`text-lg md:text-xl font-black transition-colors duration-300 ${isPrivate ? "text-[#4D96AD] drop-shadow-sm" : "text-gray-400 opacity-70"}`}>Private</span>
                 </div>
 
                 {/* Pricing Cards */}
@@ -133,6 +122,9 @@ const PricingSection = () => {
                     ))}
                 </div>
             </div>
+
+            {/* Straight Bottom Transition to Testimonials Section - Changed from Wavy */}
+            <div className="absolute bottom-0 left-0 w-full h-px bg-white" />
         </section>
     );
 };

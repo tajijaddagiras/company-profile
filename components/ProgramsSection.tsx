@@ -5,7 +5,7 @@ const ProgramsSection = () => (
     <section id="programs" className="bg-white pt-20 pb-28 px-6 md:px-20 relative overflow-hidden">
 
         <div className="max-w-7xl mx-auto pt-6">
-            <div className="text-center mb-12 relative">
+            <div className="text-center mb-10 relative">
                 <p className="text-[#4D96AD] text-sm font-extrabold uppercase tracking-widest mb-3">Our Programs</p>
                 <h2 className="text-4xl md:text-5xl font-black text-[#4D96AD] leading-tight">
                     We Meet Kids At Their Level<br />Regardless Of Their Age
@@ -20,11 +20,11 @@ const ProgramsSection = () => (
 
             <div className="max-w-7xl mx-auto">
                 {/* Discrete Image between Title and Cards */}
-                <div className="flex justify-center -mb-10 px-4 md:px-0 relative z-20">
+                <div className="flex justify-center -mb-12 md:-mb-14 px-4 md:px-0 relative z-20 transform -translate-y-4 md:-translate-y-6">
                     <img
                         src="/images/carddrawing.PNG"
                         alt="Art Workshop"
-                        className="w-full max-w-[180px] h-auto"
+                        className="w-full max-w-[190px] h-auto drop-shadow-lg"
                     />
                 </div>
 
@@ -40,8 +40,7 @@ const ProgramsSection = () => (
                             }}
                         >
                             <div className="flex flex-col gap-1">
-                                <h3 className="text-xl font-black tracking-tight">{p.title}</h3>
-                                <p className="text-xs font-bold opacity-80">{p.age}</p>
+                                <h3 className="text-2xl md:text-3xl font-black tracking-tight drop-shadow-sm mb-2">{p.title}</h3>
                             </div>
 
                             <p className="text-sm leading-relaxed opacity-90 px-2">

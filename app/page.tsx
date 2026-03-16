@@ -20,9 +20,9 @@ export default function Home() {
             <BestSection />
             <ProgramsSection />
             <InstructorsSection />
-            <ContactSection />
             <PricingSection />
             <TestimonialsSection />
+            <ContactSection />
             <Footer />
         </main>
     );

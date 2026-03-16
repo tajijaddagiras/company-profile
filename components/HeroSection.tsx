@@ -65,14 +65,22 @@ const HeroSection = () => {
 
             <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-8 px-6 md:px-12">
                 {/* ── Left Content ── */}
-                <div className="flex-1 z-10 pb-16">
-                    {/* Breadcrumb */}
-                    <div className="flex items-center gap-2 text-xs text-gray-500 mb-5">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <polygon points="8,2 14,14 2,14" fill="#4D96AD" opacity="0.7" />
-                        </svg>
-                        <span className="font-semibold">Online Course (Kids-Teens)</span>
-                        <span className="text-[#4D96AD]">✦</span>
+                <div className="flex-1 z-10 pb-16 relative">
+                    <div className="flex items-center gap-2 text-xs md:text-sm font-semibold mb-5 flex-wrap">
+                        <div className="flex items-center gap-2 text-gray-500">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <polygon points="8,2 14,14 2,14" fill="#4D96AD" opacity="0.7" />
+                            </svg>
+                            <span>Online Course (Kids-Teens)</span>
+                            <span className="text-[#4D96AD]">✦</span>
+                        </div>
+                    </div>
+
+                    {/* New Absolute Slogan (Pushed FAR right, towards the image) */}
+                    <div className="absolute top-0 right-0 md:-right-32 lg:-right-64 hidden xl:-right-96 md:block z-30 pointer-events-none w-max">
+                        <span className="text-[#2D3561] text-lg md:text-xl font-black italic">
+                            &quot;Every Child Can Create — with CatBear Art Studio&quot;
+                        </span>
                     </div>
 
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#4D96AD] leading-tight mb-5">
@@ -94,6 +102,13 @@ const HeroSection = () => {
 
                 {/* ── Right — Organic blob + image ── */}
                 <div className="flex-1 relative flex justify-center items-end min-h-[450px] pb-16 md:pb-28">
+
+                    {/* Mobile Only Inline Slogan */}
+                    <div className="md:hidden absolute -top-8 left-0 z-30 pointer-events-none w-full text-center">
+                        <span className="text-[#2D3561] text-sm font-black italic">
+                            &quot;Every Child Can Create — with CatBear Art Studio&quot;
+                        </span>
+                    </div>
 
                     {/* Large organic orange blob */}
                     <div
