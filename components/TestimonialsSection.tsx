@@ -20,6 +20,12 @@ const testimonials = [
         name: "Tan Celine Evania Lahendra",
         role: "Student",
         photo: "/images/testi3.jpeg"
+    },
+    {
+        quote: "Hai saya edgard saya sudah les kurang lebih sepuluh bulan yang saya rasakan adalah lebih mengerti tentang 3d blender metode yang miss nya ajarkan sangat mudah di pahami. Terimakasih CatbearArtstudio :)",
+        name: "Edgard Ivander L",
+        role: "Student",
+        photo: null
     }
 ];
 
