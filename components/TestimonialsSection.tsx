@@ -14,6 +14,12 @@ const testimonials = [
         name: "Joel Derren",
         role: "Student",
         photo: "/images/testi2.jpeg"
+    },
+    {
+        quote: "Belajar di CatbearArtstudio sangat menyenangkan.. Pelajarannya menarik dan tidak membosankan. Gurunya sabar dan menjelaskan materi dengan sangat baik.. Terima kasih CatbearArtstudio :)",
+        name: "Tan Celine Evania Lahendra",
+        role: "Student",
+        photo: "/images/testi3.jpeg"
     }
 ];
 
