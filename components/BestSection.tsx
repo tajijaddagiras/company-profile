@@ -84,74 +84,17 @@ const BestSection = () => (
                     ))}
                 </div>
 
-                {/* Center Image Placeholder with Yellow Line Art */}
+                {/* Center Image - Replaced frame and characters with single ourcourse.png */}
                 <div className="flex-1 relative flex justify-center items-center py-10">
-                    <div className="relative">
-                        {/* Corrected Arch decorations: Blue borders, Pink outer fill, Cream inner fill */}
-                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-[110%] border-[4px] border-[#4D96AD] bg-[#FFD6E9] shadow-sm" style={{ borderRadius: "160px 160px 0 0" }} />
-                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-72 h-[100%] border-[4px] border-[#4D96AD] bg-[#FFF5E1] shadow-sm" style={{ borderRadius: "140px 140px 0 0" }} />
-
-                        {/* Main Character with Cloud Overlay Placeholder */}
-                        <div className="relative z-10 w-72 h-[450px] flex items-end justify-center">
-                            <Image
-                                src="/images/kartunwisuda.png"
-                                alt="Child Graduation"
-                                fill
-                                className="object-contain object-bottom"
-                            />
-                            {/* Overlay using awan.png - Center-Top - Lowered and shifted right again */}
-                            <div className="absolute -top-26 right-[-260px] pointer-events-none z-20">
-                                <Image
-                                    src="/images/awan.png"
-                                    alt="Cloud Main"
-                                    width={480}
-                                    height={280}
-                                    className="max-w-none opacity-60 animate-pulse"
-                                />
-                            </div>
-
-                            {/* Painting decoration - Aligned with cloud but below it - Smaller and Lower - Nudged Up Very Slightly */}
-                            <div className="absolute top-76 right-[40px] pointer-events-none z-20">
-                                <Image
-                                    src="/images/lukisan.PNG"
-                                    alt="Painting Decoration"
-                                    width={240}
-                                    height={150}
-                                    className="max-w-none rotate-3"
-                                />
-                            </div>
-
-                            {/* Jar decoration - Aligned with painting - Precise Nudge Down (320px) - Resized to 240px */}
-                            <div className="absolute top-[320px] right-[5px] pointer-events-none z-20">
-                                <Image
-                                    src="/images/toples.PNG"
-                                    alt="Jar Decoration"
-                                    width={240}
-                                    height={240}
-                                    className="max-w-none opacity-90"
-                                />
-                            </div>
-
-                            {/* Additional clouds stacked and overlapped - Lowered and shifted right again */}
-                            <div className="absolute -top-15 -left-5 pointer-events-none z-20">
-                                <Image
-                                    src="/images/awan.png"
-                                    alt="Cloud Clump Left"
-                                    width={420}
-                                    height={250}
-                                    className="max-w-none opacity-50 animate-pulse duration-[5000ms]"
-                                />
-                            </div>
-                            <div className="absolute top-0 left-25 pointer-events-none z-10">
-                                <Image
-                                    src="/images/awan.png"
-                                    alt="Cloud Clump Small"
-                                    width={320}
-                                    height={190}
-                                    className="max-w-none opacity-40 animate-pulse duration-[7000ms]"
-                                />
-                            </div>
-                        </div>
+                    <div className="relative w-full max-w-[500px] aspect-[4/3] md:aspect-square flex items-center justify-center">
+                        <Image
+                            src="/images/ourcourse.png"
+                            alt="Our Course"
+                            width={600}
+                            height={600}
+                            className="object-contain animate-float"
+                            priority
+                        />
                     </div>
                 </div>
 
