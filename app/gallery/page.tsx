@@ -8,16 +8,22 @@ const GalleryPage = () => {
     // Existing karya ids: 1-7, 9, 12-19 (.jpeg)
     const regularIds = [1, 2, 3, 4, 5, 6, 7, 9, 12, 13, 14, 15, 16, 17, 18, 19];
     
-    // 3D karya ids: 1-3 (.jpeg), 4-8 (.png)
+    // 3D karya ids: 1-3 (.jpeg), 4-8 (.png), 9-10 (videos), 11-14 (.png)
     const threeDWorks = [
-        { id: '1', ext: 'jpeg' },
-        { id: '2', ext: 'jpeg' },
-        { id: '3', ext: 'jpeg' },
-        { id: '4', ext: 'png' },
-        { id: '5', ext: 'png' },
-        { id: '6', ext: 'png' },
-        { id: '7', ext: 'png' },
-        { id: '8', ext: 'png' }
+        { id: '1', ext: 'jpeg', type: 'image' },
+        { id: '2', ext: 'jpeg', type: 'image' },
+        { id: '3', ext: 'jpeg', type: 'image' },
+        { id: '4', ext: 'png', type: 'image' },
+        { id: '5', ext: 'png', type: 'image' },
+        { id: '6', ext: 'png', type: 'image' },
+        { id: '7', ext: 'png', type: 'image' },
+        { id: '8', ext: 'png', type: 'image' },
+        { id: '9', ext: 'mp4', type: 'video' },
+        { id: '10', ext: 'mkv', type: 'video' },
+        { id: '11', ext: 'png', type: 'image' },
+        { id: '12', ext: 'png', type: 'image' },
+        { id: '13', ext: 'png', type: 'image' },
+        { id: '14', ext: 'png', type: 'image' }
     ];
 
     // Drawing karya ids: 1-3 (.png)
@@ -43,6 +49,7 @@ const GalleryPage = () => {
             img: `/images/karya3d${work.id}.${work.ext}`,
             url: `/images/karya3d${work.id}.${work.ext}`,
             height: [500, 400, 550, 450, 500][i % 5],
+            type: work.type as 'image' | 'video'
         })),
         ...drawingWorks.map((work, i) => ({
             id: `drawing-${work.id}`,

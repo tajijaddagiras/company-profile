@@ -54,22 +54,29 @@ const ProgramDetailPage = () => {
         }
 
         if (slug === '3d-animation') {
-            // Specific images for 3D Animation with their respective extensions
-            const threeDImages = [
-                { id: '1', ext: 'jpeg' },
-                { id: '2', ext: 'jpeg' },
-                { id: '3', ext: 'jpeg' },
-                { id: '4', ext: 'png' },
-                { id: '5', ext: 'png' },
-                { id: '6', ext: 'png' },
-                { id: '7', ext: 'png' },
-                { id: '8', ext: 'png' }
+            // Specific images and videos for 3D Animation
+            const threeDAssets = [
+                { id: '1', ext: 'jpeg', type: 'image' },
+                { id: '2', ext: 'jpeg', type: 'image' },
+                { id: '3', ext: 'jpeg', type: 'image' },
+                { id: '4', ext: 'png', type: 'image' },
+                { id: '5', ext: 'png', type: 'image' },
+                { id: '6', ext: 'png', type: 'image' },
+                { id: '7', ext: 'png', type: 'image' },
+                { id: '8', ext: 'png', type: 'image' },
+                { id: '11', ext: 'png', type: 'image' },
+                { id: '12', ext: 'png', type: 'image' },
+                { id: '13', ext: 'png', type: 'image' },
+                { id: '14', ext: 'png', type: 'image' },
+                { id: '9', ext: 'mp4', type: 'video' },
+                { id: '10', ext: 'mkv', type: 'video' }
             ];
-            return threeDImages.map((img, i) => ({
-                id: `karya-3d-${img.id}`,
-                img: `/images/karya3d${img.id}.${img.ext}`,
-                url: `/images/karya3d${img.id}.${img.ext}`,
+            return threeDAssets.map((asset, i) => ({
+                id: `karya-3d-${asset.id}`,
+                img: asset.type === 'video' ? `/images/karya3d${asset.id}.${asset.ext}` : `/images/karya3d${asset.id}.${asset.ext}`, // Fallback to asset itself as poster for now
+                url: `/images/karya3d${asset.id}.${asset.ext}`,
                 height: [500, 400, 550, 450, 500][i % 5],
+                type: asset.type as 'image' | 'video'
             }));
         }
 

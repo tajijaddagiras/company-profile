@@ -56,9 +56,10 @@ const preloadImages = async (urls: string[]): Promise<void> => {
 
 interface Item {
     id: string;
-    img: string;
-    url: string;
+    img: string; // Thumbnail or Poster
+    url: string; // Full media URL (Image or Video)
     height: number;
+    type?: 'image' | 'video';
 }
 
 interface GridItem extends Item {
@@ -101,7 +102,7 @@ const Masonry: React.FC<MasonryProps> = ({
     const [imagesReady, setImagesReady] = useState(false);
 
     // State for popup/lightbox
-    const [activeImage, setActiveImage] = useState<string | null>(null);
+    const [activeItem, setActiveItem] = useState<Item | null>(null);
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -138,7 +139,8 @@ const Masonry: React.FC<MasonryProps> = ({
     };
 
     useEffect(() => {
-        preloadImages(items.map(i => i.img)).then(() => setImagesReady(true));
+        const imageUrls = items.filter(i => i.type !== 'video' && !i.url.match(/\.(mp4|mkv|webm|ogg)$/i)).map(i => i.img);
+        preloadImages(imageUrls).then(() => setImagesReady(true));
     }, [items]);
 
     const { grid, maxHeight } = useMemo(() => {
@@ -204,23 +206,38 @@ const Masonry: React.FC<MasonryProps> = ({
         hasMounted.current = true;
     }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease]);
 
-    const handleMouseEnter = (id: string) => {
+    const handleMouseEnter = (item: GridItem) => {
         if (scaleOnHover) {
-            gsap.to(`[data-key="${id}"]`, {
+            gsap.to(`[data-key="${item.id}"]`, {
                 scale: hoverScale,
                 duration: 0.3,
                 ease: 'power2.out'
             });
         }
+        
+        // Play video thumbnail on hover if it's a video
+        if (item.type === 'video' || item.url.match(/\.(mp4|mkv|webm|ogg)$/i)) {
+            const video = document.querySelector(`[data-key="${item.id}"] video`) as HTMLVideoElement;
+            if (video) video.play().catch(() => {});
+        }
     };
 
-    const handleMouseLeave = (id: string) => {
+    const handleMouseLeave = (item: GridItem) => {
         if (scaleOnHover) {
-            gsap.to(`[data-key="${id}"]`, {
+            gsap.to(`[data-key="${item.id}"]`, {
                 scale: 1,
                 duration: 0.3,
                 ease: 'power2.out'
             });
+        }
+
+        // Pause video thumbnail on leave
+        if (item.type === 'video' || item.url.match(/\.(mp4|mkv|webm|ogg)$/i)) {
+            const video = document.querySelector(`[data-key="${item.id}"] video`) as HTMLVideoElement;
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+            }
         }
     };
 
@@ -232,37 +249,60 @@ const Masonry: React.FC<MasonryProps> = ({
                     data-key={item.id}
                     className="absolute box-content cursor-pointer"
                     style={{ willChange: 'transform, width, height, opacity' }}
-                    onClick={() => item.url && setActiveImage(item.url)}
-                    onMouseEnter={() => handleMouseEnter(item.id)}
-                    onMouseLeave={() => handleMouseLeave(item.id)}
+                    onClick={() => item.url && setActiveItem(item)}
+                    onMouseEnter={() => handleMouseEnter(item)}
+                    onMouseLeave={() => handleMouseLeave(item)}
                 >
                     <div
-                        className="relative w-full h-full bg-cover bg-center rounded-[20px] shadow-lg overflow-hidden border-2 border-white/50"
-                        style={{ backgroundImage: `url(${item.img})` }}
+                        className="relative w-full h-full bg-[#D5EED1]/30 rounded-[20px] shadow-lg overflow-hidden border-2 border-white/50"
                     >
+                        {item.type === 'video' || item.url.match(/\.(mp4|mkv|webm|ogg)$/i) ? (
+                            <video
+                                src={item.url}
+                                muted
+                                loop
+                                playsInline
+                                className="w-full h-full object-cover"
+                                poster={item.img !== item.url ? item.img : undefined}
+                            />
+                        ) : (
+                            <div 
+                                className="w-full h-full bg-cover bg-center"
+                                style={{ backgroundImage: `url(${item.img})` }}
+                            />
+                        )}
+
                         {colorShiftOnHover && (
                             <div className="color-overlay absolute inset-0 rounded-[20px] bg-gradient-to-tr from-[#4D96AD]/30 to-pink-500/30 opacity-0 pointer-events-none transition-opacity" />
                         )}
-                        <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors flex items-end p-4">
-                            <span className="text-white text-[10px] font-bold tracking-widest opacity-0 hover:opacity-100 transition-opacity">
-                                VIEW WORK
-                            </span>
+                        <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors flex items-center justify-center p-4">
+                            {item.type === 'video' || item.url.match(/\.(mp4|mkv|webm|ogg)$/i) ? (
+                                <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                        <path d="M8 5v14l11-7z" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                            ) : (
+                                <span className="text-white text-[10px] font-bold tracking-widest opacity-0 hover:opacity-100 transition-opacity">
+                                    VIEW WORK
+                                </span>
+                            )}
                         </div>
                     </div>
                 </div>
             ))}
 
-            {activeImage && mounted && createPortal(
+            {activeItem && mounted && createPortal(
                 <div
-                    className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 md:p-12 transition-opacity"
-                    onClick={() => setActiveImage(null)}
+                    className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 md:p-12 transition-opacity"
+                    onClick={() => setActiveItem(null)}
                 >
                     {/* Close button */}
                     <button
                         className="absolute top-6 right-6 md:top-10 md:right-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/30 text-white flex items-center justify-center transition-all z-[100000]"
                         onClick={(e) => {
                             e.stopPropagation();
-                            setActiveImage(null);
+                            setActiveItem(null);
                         }}
                     >
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -271,16 +311,30 @@ const Masonry: React.FC<MasonryProps> = ({
                         </svg>
                     </button>
 
-                    {/* Image Container */}
+                    {/* Media Container */}
                     <div
-                        className="relative w-full h-full max-w-5xl max-h-[90vh] flex items-center justify-center"
-                        onClick={(e) => e.stopPropagation()} // Prevent clicking image from closing
+                        className="relative w-full h-full max-w-6xl max-h-[90vh] flex items-center justify-center"
+                        onClick={(e) => e.stopPropagation()} // Prevent clicking media from closing
                     >
-                        <img
-                            src={activeImage}
-                            alt="Gallery Expanded"
-                            className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl border-4 border-white/20 select-none animate-[fadeIn_0.3s_ease-out_forwards]"
-                        />
+                        {activeItem.type === 'video' || activeItem.url.match(/\.(mp4|mkv|webm|ogg)$/i) ? (
+                            <div className="w-full h-full flex items-center justify-center bg-black rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
+                                <video
+                                    src={activeItem.url}
+                                    controls
+                                    autoPlay
+                                    className="max-w-full max-h-full"
+                                    poster={activeItem.img}
+                                >
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        ) : (
+                            <img
+                                src={activeItem.url}
+                                alt="Gallery Expanded"
+                                className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl border-4 border-white/20 select-none animate-[fadeIn_0.3s_ease-out_forwards]"
+                            />
+                        )}
                     </div>
                     {/* Add keyframes globally or just here for simple scale pop */}
                     <style dangerouslySetInnerHTML={{

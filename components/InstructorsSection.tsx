@@ -15,16 +15,35 @@ const instructors = [
     {
         name: "Catherine Maria",
         role: "Founder & CEO of Catbear Art Studio",
-        desc: "Catbear Art Studio didirikan dengan keyakinan bahwa setiap anak memiliki talenta yang unik dan berharga. Kami ingin membantu anak-anak menyadari bahwa tidak ada kemampuan yang terlalu kecil untuk dikembangkan.\n\nMelalui seni dan kreativitas, kami mendampingi mereka untuk menemukan potensi terbaik dalam diri mereka, membangun rasa percaya diri, dan mempersiapkan masa depan yang lebih cerah.\n\nKami percaya bahwa meskipun mereka masih kecil, imajinasi dan bakat mereka memiliki kekuatan besar untuk membuka banyak kemungkinan di masa depan.",
+        desc: (
+            <>
+                Di <span className="text-[#4D96AD] font-extrabold uppercase tracking-tighter">CatBear Art Studio</span>, kami percaya bahwa setiap anak terlahir dengan percikan talenta yang unik. Misi kami adalah mendampingi setiap langkah kecil mereka untuk menemukan potensi terbaik melampaui imajinasi.
+                {"\n\n"}
+                Melalui kurikulum seni yang kreatif dan menyenangkan, <span className="text-[#EF8FA1] font-extrabold underline decoration-2 decoration-[#EF8FA1]/30 underline-offset-4">CatBear Art Studio</span> hadir untuk membangun rasa percaya diri dan karakter tangguh bagi masa depan anak. Kami ingin setiap anak menyadari bahwa tidak ada mimpi yang terlalu besar untuk dimulai dari sekarang.
+                {"\n\n"}
+                Mari berkreasi bersama <span className="text-[#4D96AD] font-extrabold italic">CatBear Art Studio</span> tempat di mana imajinasi kecil berubah menjadi kekuatan besar untuk membuka dunia!
+            </>
+        ),
         color: "#EF8FA1",
-        photo: "/images/instruktor.png"
+        photo: "/images/instruktor.jpeg"
     },
 ];
 
 const InstructorsSection = () => (
-    <section id="instructors" className="bg-[#FFCDE4] py-20 px-6 md:px-20 relative overflow-hidden">
+    <section id="instructors" className="bg-[#FFCDE4] py-24 px-6 md:px-20 relative overflow-hidden">
 
-        {/* Doodles */}
+        {/* Floating Decorative Elements - Anti-Flat Layers */}
+        {/* Artistic Icons */}
+        <div className="absolute left-10 top-20 opacity-20 text-4xl animate-pulse delay-700 pointer-events-none">🎨</div>
+        <div className="absolute right-10 top-40 opacity-20 text-4xl animate-bounce duration-[3000ms] pointer-events-none">✨</div>
+        <div className="absolute left-1/4 bottom-40 opacity-15 text-5xl animate-pulse duration-[4000ms] pointer-events-none">🖌️</div>
+        <div className="absolute right-1/4 bottom-1/4 opacity-15 text-4xl animate-bounce duration-[5000ms] pointer-events-none">⭐</div>
+
+        {/* Abstract Circles */}
+        <div className="absolute -left-20 top-1/4 w-64 h-64 bg-white/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -right-20 bottom-1/4 w-80 h-80 bg-[#4D96AD]/10 rounded-full blur-3xl pointer-events-none" />
+
+        {/* Doodles from existing code */}
         {/* Cactus on middle-left border */}
         <div className="absolute left-4 top-1/2 -translate-y-1/2 opacity-30 pointer-events-none">
             <svg width="60" height="100" viewBox="0 0 60 100" fill="none" stroke="#4D96AD" strokeWidth="1.5">
@@ -42,8 +61,6 @@ const InstructorsSection = () => (
                 <circle cx="100" cy="75" r="8" opacity="0.4" />
             </svg>
         </div>
-        {/* Star near right card */}
-        <div className="absolute right-1/4 top-1/3 opacity-30 text-[#4D96AD] text-2xl rotate-12">⭐</div>
 
         <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-16">
@@ -55,14 +72,15 @@ const InstructorsSection = () => (
 
             <div className="flex justify-center">
                 <div className="w-full max-w-4xl flex flex-col items-center relative">
+
                     {instructors.map((inst, i) => (
                         <React.Fragment key={i}>
-                            {/* Organic Teardrop Image Container - Floating above the card */}
+                            {/* Organic Teardrop Image Container - Floating above the card - Plain/Static */}
                             <div
-                                className="w-56 h-64 md:w-64 md:h-72 mb-[-80px] relative z-20 flex items-center justify-center overflow-hidden border-[8px] border-white shadow-2xl transition-transform duration-500"
+                                className="w-64 h-72 md:w-72 md:h-80 mb-[-100px] relative z-20 flex items-center justify-center overflow-hidden border-[10px] border-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)]"
                                 style={{
                                     background: inst.color,
-                                    borderRadius: "100px 100px 20px 100px",
+                                    borderRadius: "110px 110px 30px 110px",
                                 }}
                             >
                                 {inst.photo ? (
@@ -70,17 +88,24 @@ const InstructorsSection = () => (
                                         src={inst.photo}
                                         alt={inst.name}
                                         className="w-full h-full object-cover"
-                                        style={{ borderRadius: "92px 92px 12px 92px" }}
+                                        style={{ borderRadius: "100px 100px 20px 100px" }}
                                     />
                                 ) : (
-                                    <NoImg className="w-full h-full opacity-90" style={{ borderRadius: "92px 92px 12px 92px" }} />
+                                    <NoImg className="w-full h-full opacity-90" style={{ borderRadius: "100px 100px 20px 100px" }} />
                                 )}
                             </div>
 
                             {/* White Card Content - Widened for better text flow */}
-                            <div className="bg-white w-full rounded-[60px] pt-32 pb-16 px-10 md:px-20 flex flex-col items-center text-center shadow-sm border border-gray-50">
-                                <div className="max-w-2xl px-4">
-                                    <p className="text-gray-600 text-base md:text-lg leading-relaxed whitespace-pre-line italic font-medium">
+                            <div className="bg-white/95 backdrop-blur-sm w-full rounded-[60px] pt-36 pb-20 px-10 md:px-24 flex flex-col items-center text-center shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] border border-white/50 relative overflow-hidden">
+                                {/* Subtle internal decoration */}
+                                <div className="absolute top-0 right-0 p-10 opacity-5 pointer-events-none">
+                                    <svg width="100" height="100" viewBox="0 0 100 100">
+                                        <circle cx="50" cy="50" r="40" stroke="#4D96AD" strokeWidth="2" fill="none" strokeDasharray="10 5" />
+                                    </svg>
+                                </div>
+
+                                <div className="max-w-2xl">
+                                    <p className="text-gray-600 text-lg md:text-xl leading-[1.8] whitespace-pre-line font-medium text-pretty">
                                         &quot;{inst.desc}&quot;
                                     </p>
                                 </div>
